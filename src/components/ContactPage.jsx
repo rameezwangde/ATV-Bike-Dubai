@@ -280,3 +280,4 @@ export default function ContactPage({ onOpenBooking }) {
     </div>
   );
 }
+

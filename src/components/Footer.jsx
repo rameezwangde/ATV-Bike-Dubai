@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Footer({ onOpenBooking, onOpenPackages, onOpenPolicy }) {
+export default function Footer({ onOpenBooking, onOpenPackages, onOpenPolicy, onNavigate }) {
   const whatsappUrl = "https://wa.me/971504799258?text=Hello%2C%20I%20would%20like%20to%20book%20an%20ATV%20Dubai%20desert%20experience!";
 
   return (
@@ -47,13 +47,73 @@ export default function Footer({ onOpenBooking, onOpenPackages, onOpenPolicy }) 
           <div className="footer-col">
             <h4 className="footer-heading">QUICK LINKS</h4>
             <ul className="footer-links-list">
-              <li><a href="#hero">Home</a></li>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#fleet">Choose Machine</a></li>
-              <li><a href="#packages">Packages</a></li>
+              <li>
+                <a
+                  href="#hero"
+                  onClick={(e) => {
+                    if (onNavigate) {
+                      e.preventDefault();
+                      onNavigate('home', '#hero');
+                    }
+                  }}
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#about"
+                  onClick={(e) => {
+                    if (onNavigate) {
+                      e.preventDefault();
+                      onNavigate('home', '#about');
+                    }
+                  }}
+                >
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#fleet"
+                  onClick={(e) => {
+                    if (onNavigate) {
+                      e.preventDefault();
+                      onNavigate('home', '#fleet');
+                    }
+                  }}
+                >
+                  Choose Machine
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#packages"
+                  onClick={(e) => {
+                    if (onNavigate) {
+                      e.preventDefault();
+                      onNavigate('home', '#packages');
+                    }
+                  }}
+                >
+                  Packages
+                </a>
+              </li>
               <li><a href="#packages" onClick={(e) => { e.preventDefault(); onOpenPackages(); }}>Gallery Fleet</a></li>
               <li><a href="#contact" onClick={(e) => { e.preventDefault(); onOpenBooking(); }}>Testimonials</a></li>
-              <li><a href="#contact" onClick={(e) => { e.preventDefault(); onOpenBooking(); }}>Contact</a></li>
+              <li>
+                <a
+                  href="#contact"
+                  onClick={(e) => {
+                    if (onNavigate) {
+                      e.preventDefault();
+                      onNavigate('contact', '#contact');
+                    }
+                  }}
+                >
+                  Contact
+                </a>
+              </li>
             </ul>
           </div>
 

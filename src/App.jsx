@@ -46,99 +46,126 @@ export default function App() {
     };
   }, []);
 
+  // Sync hash routing e.g. #/contact or #contact
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash;
+      if (hash === '#/contact' || hash === '#contact') {
+        setCurrentPage('contact');
+      } else {
+        setCurrentPage('home');
+      }
+    };
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
+
   return (
     <div className="site-wrapper">
-      {/* SECTION 1: HERO - SITTING INSIDE THE ATV COCKPIT */}
-      <section className="hero-container" id="hero">
-        <div className="cockpit-backdrop">
-          <img
-            src="/hero-cockpit-master.jpg"
-            alt="ATV Dubai Guide Desert Cockpit Experience"
-            className="cockpit-img"
-            style={{
-              transform: `scale(1.008) translate(${parallax.x}px, ${parallax.y}px)`
-            }}
-          />
-        </div>
-
-        {/* Top Header Navigation Overlay */}
-        <Header
-          onOpenBooking={() => setIsBookingModalOpen(true)}
-          isMobileMenuOpen={isMobileMenuOpen}
-          setIsMobileMenuOpen={setIsMobileMenuOpen}
-          activePage={currentPage}
-          setActivePage={(page) => {
-            setCurrentPage(page);
-            if (page === 'contact') {
-              setTimeout(() => {
-                const el = document.getElementById('contact-page');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
-              }, 50);
-            }
-          }}
-        />
-
-        {/* Interactive CTA Hotspots */}
-        <div className="hero-cta-hotspots-container">
-          <button
-            className="btn-book-ride-hotspot"
-            onClick={() => setIsBookingModalOpen(true)}
-            title="Book Your Ride"
-            aria-label="Book Your Ride"
-          >
-            <span className="hotspot-glow"></span>
-          </button>
-
-          <button
-            className="btn-watch-tour-hotspot"
-            onClick={() => setIsVideoModalOpen(true)}
-            title="Watch Tour"
-            aria-label="Watch Tour"
-          >
-            <span className="hotspot-glow"></span>
-          </button>
-        </div>
-
-        {/* Dashboard Hotspot & 4WD Toggle */}
-        <Dashboard is4WD={is4WD} setIs4WD={setIs4WD} />
-      </section>
-
-      {/* SECTION 2: ABOUT US - STEPPING OUTSIDE BESIDE THE ATV */}
-      <AboutUs
+      {/* Top Header Navigation */}
+      <Header
         onOpenBooking={() => setIsBookingModalOpen(true)}
-        onDiscoverStory={() => setIsBookingModalOpen(true)}
+        isMobileMenuOpen={isMobileMenuOpen}
+        setIsMobileMenuOpen={setIsMobileMenuOpen}
+        activePage={currentPage}
+        setActivePage={(page) => {
+          setCurrentPage(page);
+          if (page === 'contact') {
+            window.location.hash = '#contact';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else {
+            window.location.hash = '#hero';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        }}
       />
 
-      {/* SECTION 3: CHOOSE YOUR MACHINE - CAMPAIGN SHOWCASE */}
-      <FleetShowcase
-        onOpenBooking={() => setIsBookingModalOpen(true)}
-        onOpenVideo={() => setIsVideoModalOpen(true)}
-      />
-
-      {/* SECTION 4: POPULAR DESERT PACKAGES */}
-      <PopularPackages
-        onOpenBooking={() => setIsBookingModalOpen(true)}
-        onExploreAll={() => setIsPackagesModalOpen(true)}
-      />
-
-      {/* SECTION 5: FINAL CLIMAX CTA - READY TO RIDE THE DUNES? */}
-      <ClimaxCTA
-        onOpenBooking={() => setIsBookingModalOpen(true)}
-        onExplorePackages={() => setIsPackagesModalOpen(true)}
-      />
-
-      {/* SECTION 6: DEDICATED CONTACT & LOCATION PAGE */}
-      <div id="contact-page">
+      {/* CONDITIONAL PAGE RENDERING */}
+      {currentPage === 'contact' ? (
+        /* SEPARATE CONTACT PAGE VIEW */
         <ContactPage onOpenBooking={() => setIsBookingModalOpen(true)} />
-      </div>
+      ) : (
+        /* HOME PAGE VIEW */
+        <>
+          {/* SECTION 1: HERO - SITTING INSIDE THE ATV COCKPIT */}
+          <section className="hero-container" id="hero">
+            <div className="cockpit-backdrop">
+              <img
+                src="/hero-cockpit-master.jpg"
+                alt="ATV Dubai Guide Desert Cockpit Experience"
+                className="cockpit-img"
+                style={{
+                  transform: `scale(1.008) translate(${parallax.x}px, ${parallax.y}px)`
+                }}
+              />
+            </div>
 
-      {/* FOOTER */}
+            {/* Interactive CTA Hotspots */}
+            <div className="hero-cta-hotspots-container">
+              <button
+                className="btn-book-ride-hotspot"
+                onClick={() => setIsBookingModalOpen(true)}
+                title="Book Your Ride"
+                aria-label="Book Your Ride"
+              >
+                <span className="hotspot-glow"></span>
+              </button>
+
+              <button
+                className="btn-watch-tour-hotspot"
+                onClick={() => setIsVideoModalOpen(true)}
+                title="Watch Tour"
+                aria-label="Watch Tour"
+              >
+                <span className="hotspot-glow"></span>
+              </button>
+            </div>
+
+            {/* Dashboard Hotspot & 4WD Toggle */}
+            <Dashboard is4WD={is4WD} setIs4WD={setIs4WD} />
+          </section>
+
+          {/* SECTION 2: ABOUT US - STEPPING OUTSIDE BESIDE THE ATV */}
+          <AboutUs
+            onOpenBooking={() => setIsBookingModalOpen(true)}
+            onDiscoverStory={() => setIsBookingModalOpen(true)}
+          />
+
+          {/* SECTION 3: CHOOSE YOUR MACHINE - CAMPAIGN SHOWCASE */}
+          <FleetShowcase
+            onOpenBooking={() => setIsBookingModalOpen(true)}
+            onOpenVideo={() => setIsVideoModalOpen(true)}
+          />
+
+          {/* SECTION 4: POPULAR DESERT PACKAGES */}
+          <PopularPackages
+            onOpenBooking={() => setIsBookingModalOpen(true)}
+            onExploreAll={() => setIsPackagesModalOpen(true)}
+          />
+
+          {/* SECTION 5: FINAL CLIMAX CTA - READY TO RIDE THE DUNES? */}
+          <ClimaxCTA
+            onOpenBooking={() => setIsBookingModalOpen(true)}
+            onExplorePackages={() => setIsPackagesModalOpen(true)}
+          />
+        </>
+      )}
+
+      {/* FOOTER (Shown on both pages) */}
       <Footer
         onOpenBooking={() => setIsBookingModalOpen(true)}
         onOpenPackages={() => setIsPackagesModalOpen(true)}
         onOpenPolicy={(tab) => {
           setPolicyInitialTab(tab || 'terms');
           setIsPolicyModalOpen(true);
+        }}
+        onNavigate={(page, hash) => {
+          setCurrentPage(page);
+          if (hash) {
+            window.location.hash = hash;
+          }
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
       />
 
