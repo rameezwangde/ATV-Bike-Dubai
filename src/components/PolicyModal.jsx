@@ -205,3 +205,4 @@ export default function PolicyModal({ isOpen, onClose, initialTab = 'terms' }) {
     </div>
   );
 }
+

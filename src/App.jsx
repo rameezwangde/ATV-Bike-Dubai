@@ -6,11 +6,13 @@ import FleetShowcase from './components/FleetShowcase.jsx';
 import PopularPackages from './components/PopularPackages.jsx';
 import ClimaxCTA from './components/ClimaxCTA.jsx';
 import Footer from './components/Footer.jsx';
+import ContactPage from './components/ContactPage.jsx';
 import PolicyModal from './components/PolicyModal.jsx';
 import PackagesModal from './components/PackagesModal.jsx';
 import { VideoModal, BookingModal } from './components/Modals.jsx';
 
 export default function App() {
+  const [currentPage, setCurrentPage] = useState('home');
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [isPackagesModalOpen, setIsPackagesModalOpen] = useState(false);
@@ -64,6 +66,16 @@ export default function App() {
           onOpenBooking={() => setIsBookingModalOpen(true)}
           isMobileMenuOpen={isMobileMenuOpen}
           setIsMobileMenuOpen={setIsMobileMenuOpen}
+          activePage={currentPage}
+          setActivePage={(page) => {
+            setCurrentPage(page);
+            if (page === 'contact') {
+              setTimeout(() => {
+                const el = document.getElementById('contact-page');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }, 50);
+            }
+          }}
         />
 
         {/* Interactive CTA Hotspots */}
@@ -114,6 +126,11 @@ export default function App() {
         onOpenBooking={() => setIsBookingModalOpen(true)}
         onExplorePackages={() => setIsPackagesModalOpen(true)}
       />
+
+      {/* SECTION 6: DEDICATED CONTACT & LOCATION PAGE */}
+      <div id="contact-page">
+        <ContactPage onOpenBooking={() => setIsBookingModalOpen(true)} />
+      </div>
 
       {/* FOOTER */}
       <Footer

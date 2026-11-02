@@ -1,13 +1,36 @@
 import React from 'react';
 
-export default function Header({ onOpenBooking, isMobileMenuOpen, setIsMobileMenuOpen }) {
+export default function Header({
+  onOpenBooking,
+  isMobileMenuOpen,
+  setIsMobileMenuOpen,
+  activePage = 'home',
+  setActivePage
+}) {
+  const handleNavClick = (pageId, hash) => {
+    if (setActivePage) {
+      setActivePage(pageId);
+    }
+    if (hash) {
+      window.location.hash = hash;
+    }
+  };
+
   return (
     <>
       <header className="site-header">
         <div className="header-inner">
           
           {/* Logo on Left */}
-          <a href="#hero" className="site-brand-logo" aria-label="ATV Dubai Guide">
+          <a
+            href="#hero"
+            className="site-brand-logo"
+            aria-label="ATV Dubai Guide"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavClick('home', '#hero');
+            }}
+          >
             <span className="brand-icon">
               <svg viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 7h10.29l1.08 3.11H5.77L6.85 7zM19 17H5v-4.66l.12-.34h13.77l.11.34V17z" />
@@ -21,21 +44,49 @@ export default function Header({ onOpenBooking, isMobileMenuOpen, setIsMobileMen
             </span>
           </a>
 
-          {/* Centered Minimal Navbar matching Screenshot 2: HOME, ABOUT US, PACKAGES, CONTACT */}
+          {/* Centered Minimal Navbar matching Screenshot: HOME, ABOUT US, PACKAGES, CONTACT */}
           <nav className="site-nav" aria-label="Main Navigation">
-            <a href="#hero" className="nav-item active">
+            <a
+              href="#hero"
+              className={`nav-item ${activePage === 'home' ? 'active' : ''}`}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick('home', '#hero');
+              }}
+            >
               <span>HOME</span>
               <span className="nav-active-bar"></span>
             </a>
-            <a href="#about" className="nav-item">
+            <a
+              href="#about"
+              className={`nav-item ${activePage === 'about' ? 'active' : ''}`}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick('home', '#about');
+              }}
+            >
               <span>ABOUT US</span>
               <span className="nav-active-bar"></span>
             </a>
-            <a href="#packages" className="nav-item">
+            <a
+              href="#packages"
+              className={`nav-item ${activePage === 'packages' ? 'active' : ''}`}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick('home', '#packages');
+              }}
+            >
               <span>PACKAGES</span>
               <span className="nav-active-bar"></span>
             </a>
-            <a href="#contact" className="nav-item" onClick={(e) => { e.preventDefault(); onOpenBooking(); }}>
+            <a
+              href="#contact"
+              className={`nav-item ${activePage === 'contact' ? 'active' : ''}`}
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick('contact', '#contact');
+              }}
+            >
               <span>CONTACT</span>
               <span className="nav-active-bar"></span>
             </a>
@@ -86,17 +137,57 @@ export default function Header({ onOpenBooking, isMobileMenuOpen, setIsMobileMen
           </button>
         </div>
         <nav className="mobile-menu-list">
-          <a href="#hero" className="mobile-link active" onClick={() => setIsMobileMenuOpen(false)}>HOME</a>
-          <a href="#about" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>ABOUT US</a>
-          <a href="#fleet" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>CHOOSE MACHINE</a>
-          <a href="#packages" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>PACKAGES</a>
           <a
-            href="#contact"
+            href="#hero"
+            className={`mobile-link ${activePage === 'home' ? 'active' : ''}`}
+            onClick={(e) => {
+              e.preventDefault();
+              setIsMobileMenuOpen(false);
+              handleNavClick('home', '#hero');
+            }}
+          >
+            HOME
+          </a>
+          <a
+            href="#about"
             className="mobile-link"
             onClick={(e) => {
               e.preventDefault();
               setIsMobileMenuOpen(false);
-              onOpenBooking();
+              handleNavClick('home', '#about');
+            }}
+          >
+            ABOUT US
+          </a>
+          <a
+            href="#fleet"
+            className="mobile-link"
+            onClick={(e) => {
+              e.preventDefault();
+              setIsMobileMenuOpen(false);
+              handleNavClick('home', '#fleet');
+            }}
+          >
+            CHOOSE MACHINE
+          </a>
+          <a
+            href="#packages"
+            className="mobile-link"
+            onClick={(e) => {
+              e.preventDefault();
+              setIsMobileMenuOpen(false);
+              handleNavClick('home', '#packages');
+            }}
+          >
+            PACKAGES
+          </a>
+          <a
+            href="#contact"
+            className={`mobile-link ${activePage === 'contact' ? 'active' : ''}`}
+            onClick={(e) => {
+              e.preventDefault();
+              setIsMobileMenuOpen(false);
+              handleNavClick('contact', '#contact');
             }}
           >
             CONTACT
