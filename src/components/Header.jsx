@@ -3,74 +3,70 @@ import React from 'react';
 export default function Header({ onOpenBooking, isMobileMenuOpen, setIsMobileMenuOpen }) {
   return (
     <>
-      {/* Invisible Interactive Click Hotspots over the Top Frame Nav Bar */}
-      <header className="header-nav-overlay">
-        <div className="nav-inner-overlay">
+      <header className="site-header">
+        <div className="header-inner">
           
-          {/* Logo Hotspot over top left brand */}
-          <a href="#hero" className="brand-logo-hotspot" aria-label="ATV Dubai Guide Home"></a>
+          {/* Logo on Left */}
+          <a href="#hero" className="site-brand-logo" aria-label="ATV Dubai Guide">
+            <span className="brand-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 7h10.29l1.08 3.11H5.77L6.85 7zM19 17H5v-4.66l.12-.34h13.77l.11.34V17z" />
+                <circle cx="7.5" cy="14.5" r="1.5" />
+                <circle cx="16.5" cy="14.5" r="1.5" />
+              </svg>
+            </span>
+            <span className="brand-text-wrap">
+              <span className="brand-title">ATV</span>
+              <span className="brand-sub">Dubai Guide</span>
+            </span>
+          </a>
 
-          {/* Navigation link hotspots mapped directly to the painted links */}
-          <nav className="nav-links-interactive" aria-label="Main Navigation">
-            <a href="#hero" className="nav-hotspot" aria-label="Home"></a>
-            <a href="#about" className="nav-hotspot" aria-label="About Us"></a>
-
-            <div className="nav-hotspot dropdown" aria-label="Can-Am">
-              <span className="dropdown-trigger-area"></span>
-              <div className="dropdown-menu">
-                <a href="#canam-x3">Can-Am Maverick X3 (Turbo RR)</a>
-                <a href="#canam-defender">Can-Am Commander 1000R</a>
-                <a href="#canam-outlander">Can-Am Outlander 4x4</a>
-              </div>
-            </div>
-
-            <div className="nav-hotspot dropdown" aria-label="Polaris RZR">
-              <span className="dropdown-trigger-area"></span>
-              <div className="dropdown-menu">
-                <a href="#rzr-pro-r">Polaris RZR Pro R 2000cc</a>
-                <a href="#rzr-turbo-s">Polaris RZR Turbo S 1000</a>
-                <a href="#rzr-4seater">Polaris 4-Seater Family Edition</a>
-              </div>
-            </div>
-
-            <div className="nav-hotspot dropdown" aria-label="Kawasaki">
-              <span className="dropdown-trigger-area"></span>
-              <div className="dropdown-menu">
-                <a href="#kawasaki-krx">Kawasaki Teryx KRX 1000</a>
-                <a href="#kawasaki-brute">Kawasaki Brute Force 750</a>
-              </div>
-            </div>
-
-            <div className="nav-hotspot dropdown" aria-label="Quad Bikes">
-              <span className="dropdown-trigger-area"></span>
-              <div className="dropdown-menu">
-                <a href="#yamaha-raptor">Yamaha Raptor 700cc</a>
-                <a href="#yamaha-grizzly">Yamaha Grizzly 350 / 450cc</a>
-                <a href="#kids-quads">Kids & Youth Quad Bikes</a>
-              </div>
-            </div>
-
-            <a href="#desert-safari" className="nav-hotspot" aria-label="Desert Safari"></a>
-            <a href="#jetski" className="nav-hotspot" aria-label="Jetski & More"></a>
+          {/* Centered Minimal Navbar matching Screenshot 2: HOME, ABOUT US, PACKAGES, CONTACT */}
+          <nav className="site-nav" aria-label="Main Navigation">
+            <a href="#hero" className="nav-item active">
+              <span>HOME</span>
+              <span className="nav-active-bar"></span>
+            </a>
+            <a href="#about" className="nav-item">
+              <span>ABOUT US</span>
+              <span className="nav-active-bar"></span>
+            </a>
+            <a href="#packages" className="nav-item">
+              <span>PACKAGES</span>
+              <span className="nav-active-bar"></span>
+            </a>
+            <a href="#contact" className="nav-item" onClick={(e) => { e.preventDefault(); onOpenBooking(); }}>
+              <span>CONTACT</span>
+              <span className="nav-active-bar"></span>
+            </a>
           </nav>
 
-          {/* Mobile Menu Toggle Button */}
-          <button
-            className="mobile-toggle"
-            onClick={() => setIsMobileMenuOpen(true)}
-            aria-label="Toggle navigation menu"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+          {/* Right Action / Mobile Toggle */}
+          <div className="header-right-action">
+            <button
+              className="btn-header-book"
+              onClick={onOpenBooking}
+            >
+              BOOK NOW
+            </button>
+            <button
+              className="mobile-toggle"
+              onClick={() => setIsMobileMenuOpen(true)}
+              aria-label="Toggle navigation menu"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+
         </div>
       </header>
 
       {/* Responsive Mobile Drawer */}
       <div className={`mobile-nav-drawer ${isMobileMenuOpen ? 'open' : ''}`}>
         <div className="mobile-nav-header">
-          <span className="drawer-title">MENU</span>
+          <span className="drawer-title">ATV DUBAI GUIDE</span>
           <button
             className="drawer-close"
             onClick={() => setIsMobileMenuOpen(false)}
@@ -82,12 +78,19 @@ export default function Header({ onOpenBooking, isMobileMenuOpen, setIsMobileMen
         <nav className="mobile-menu-list">
           <a href="#hero" className="mobile-link active" onClick={() => setIsMobileMenuOpen(false)}>HOME</a>
           <a href="#about" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>ABOUT US</a>
-          <a href="#canam" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>CAN-AM BUGGIES</a>
-          <a href="#polaris" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>POLARIS RZR</a>
-          <a href="#kawasaki" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>KAWASAKI</a>
-          <a href="#quad-bikes" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>QUAD BIKES</a>
-          <a href="#desert-safari" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>DESERT SAFARI</a>
-          <a href="#jetski" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>JETSKI & MORE</a>
+          <a href="#fleet" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>CHOOSE MACHINE</a>
+          <a href="#packages" className="mobile-link" onClick={() => setIsMobileMenuOpen(false)}>PACKAGES</a>
+          <a
+            href="#contact"
+            className="mobile-link"
+            onClick={(e) => {
+              e.preventDefault();
+              setIsMobileMenuOpen(false);
+              onOpenBooking();
+            }}
+          >
+            CONTACT
+          </a>
         </nav>
         <div className="mobile-cta-box">
           <button
@@ -98,9 +101,6 @@ export default function Header({ onOpenBooking, isMobileMenuOpen, setIsMobileMen
             }}
           >
             <span>BOOK YOUR RIDE</span>
-            <svg className="cta-arrow" viewBox="0 0 24 24" fill="none" style={{ width: '18px', height: '18px' }}>
-              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
           </button>
         </div>
       </div>
