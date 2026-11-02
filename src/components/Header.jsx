@@ -88,7 +88,7 @@ export default function Header({
               className={`nav-item ${activePage === 'packages' ? 'active' : ''}`}
               onClick={(e) => {
                 e.preventDefault();
-                handleNavClick('home', '#packages');
+                handleNavClick('packages', '#packages');
               }}
             >
               <span>PACKAGES</span>
@@ -187,11 +187,11 @@ export default function Header({
           </a>
           <a
             href="#packages"
-            className="mobile-link"
+            className={`mobile-link ${activePage === 'packages' ? 'active' : ''}`}
             onClick={(e) => {
               e.preventDefault();
               setIsMobileMenuOpen(false);
-              handleNavClick('home', '#packages');
+              handleNavClick('packages', '#packages');
             }}
           >
             PACKAGES

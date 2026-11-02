@@ -7,6 +7,7 @@ import PopularPackages from './components/PopularPackages.jsx';
 import ClimaxCTA from './components/ClimaxCTA.jsx';
 import Footer from './components/Footer.jsx';
 import ContactPage from './components/ContactPage.jsx';
+import PackagesPage from './components/PackagesPage.jsx';
 import PolicyModal from './components/PolicyModal.jsx';
 import PackagesModal from './components/PackagesModal.jsx';
 import { VideoModal, BookingModal } from './components/Modals.jsx';
@@ -46,12 +47,14 @@ export default function App() {
     };
   }, []);
 
-  // Sync hash routing e.g. #/contact or #contact
+  // Sync hash routing e.g. #/contact, #contact, #packages, #/packages
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash;
       if (hash === '#/contact' || hash === '#contact') {
         setCurrentPage('contact');
+      } else if (hash === '#/packages' || hash === '#packages') {
+        setCurrentPage('packages');
       } else {
         setCurrentPage('home');
       }
@@ -74,6 +77,9 @@ export default function App() {
           if (page === 'contact') {
             window.location.hash = '#contact';
             window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else if (page === 'packages') {
+            window.location.hash = '#packages';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
           } else {
             window.location.hash = '#hero';
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -85,6 +91,9 @@ export default function App() {
       {currentPage === 'contact' ? (
         /* SEPARATE CONTACT PAGE VIEW */
         <ContactPage onOpenBooking={() => setIsBookingModalOpen(true)} />
+      ) : currentPage === 'packages' ? (
+        /* SEPARATE PACKAGES PAGE VIEW WITH INNOVATIVE CAN-AM CARDS */
+        <PackagesPage onOpenBooking={() => setIsBookingModalOpen(true)} />
       ) : (
         /* HOME PAGE VIEW */
         <>
