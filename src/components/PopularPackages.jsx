@@ -244,7 +244,7 @@ export default function PopularPackages({ onOpenBooking, onExploreAll }) {
           ))}
         </div>
 
-        {/* Bottom CTA Button: EXPLORE ALL PACKAGES */}
+        {/* Bottom CTA Actions */}
         <div className="packages-bottom-action">
           <button
             className="btn-explore-all"
@@ -252,6 +252,21 @@ export default function PopularPackages({ onOpenBooking, onExploreAll }) {
           >
             <span>EXPLORE ALL PACKAGES</span>
             <svg className="cta-arrow-yellow" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+
+          <button
+            className="btn-custom-vip-tour"
+            onClick={onOpenBooking}
+          >
+            <span className="vip-star-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+              </svg>
+            </span>
+            <span>BOOK CUSTOM / VIP TOUR</span>
+            <svg className="cta-arrow" viewBox="0 0 24 24" fill="none">
               <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </button>
