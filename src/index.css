@@ -89,21 +89,31 @@ body {
 
 /* Navigation Hotspot Overlay */
 /* ==========================================================================
-   SITE HEADER & NAVBAR (Matching Reference Screenshot 2)
+   SITE HEADER & NAVBAR (Sticky Floating Header with Scroll Glassmorphism)
    ========================================================================== */
 .site-header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: clamp(65px, 8vh, 85px);
-  z-index: 50;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 clamp(1.5rem, 4vw, 4rem);
   box-sizing: border-box;
   background: linear-gradient(180deg, rgba(8, 10, 12, 0.75) 0%, rgba(8, 10, 12, 0.2) 75%, transparent 100%);
+  transition: background var(--transition-smooth), backdrop-filter var(--transition-smooth), box-shadow var(--transition-smooth), height var(--transition-smooth);
+}
+
+/* Scrolled state: rich dark glassmorphism sticky bar */
+.site-header.scrolled {
+  background: rgba(10, 12, 15, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  height: clamp(60px, 7vh, 72px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65), 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .header-inner {

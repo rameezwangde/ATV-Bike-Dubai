@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Header({
   onOpenBooking,
@@ -7,6 +7,21 @@ export default function Header({
   activePage = 'home',
   setActivePage
 }) {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 40) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const handleNavClick = (pageId, hash) => {
     if (setActivePage) {
       setActivePage(pageId);
@@ -18,7 +33,7 @@ export default function Header({
 
   return (
     <>
-      <header className="site-header">
+      <header className={`site-header ${isScrolled ? 'scrolled' : ''}`}>
         <div className="header-inner">
           
           {/* Logo on Left */}
