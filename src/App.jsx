@@ -4,6 +4,7 @@ import Dashboard from './components/Dashboard.jsx';
 import AboutUs from './components/AboutUs.jsx';
 import FleetShowcase from './components/FleetShowcase.jsx';
 import PopularPackages from './components/PopularPackages.jsx';
+import ConquerBanner from './components/ConquerBanner.jsx';
 import PackagesModal from './components/PackagesModal.jsx';
 import { VideoModal, BookingModal } from './components/Modals.jsx';
 
@@ -102,6 +103,12 @@ export default function App() {
       <PopularPackages
         onOpenBooking={() => setIsBookingModalOpen(true)}
         onExploreAll={() => setIsPackagesModalOpen(true)}
+      />
+
+      {/* SECTION 5: READY TO CONQUER THE DUNES BANNER */}
+      <ConquerBanner
+        onOpenBooking={() => setIsBookingModalOpen(true)}
+        onExplorePackages={() => setIsPackagesModalOpen(true)}
       />
 
       {/* Full Packages Inventory Modal */}

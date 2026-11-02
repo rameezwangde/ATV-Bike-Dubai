@@ -218,33 +218,83 @@ body {
   width: 100%;
 }
 
-/* Right Action: Clean pill button */
+/* Right Action: Currency Selector & Angled Slanted CTA Button */
 .header-right-action {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.85rem;
   z-index: 2;
 }
 
-.btn-header-book {
-  background: var(--color-primary-yellow);
-  color: #111315;
-  font-family: var(--font-body);
-  font-size: 0.8rem;
+.currency-selector-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(22, 26, 32, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #E2E8F0;
+}
+
+.currency-country {
+  color: #94A3B8;
+  font-size: 0.7rem;
+}
+
+.currency-label {
+  color: #FFFFFF;
   font-weight: 800;
+}
+
+.currency-pill {
+  background: #E86C1D;
+  color: #FFFFFF;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 900;
+}
+
+/* Reference Angled CTA Button: Skewed shape with bold text & arrow */
+.btn-header-angled-book {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, #FF6F1E 0%, #E65A0D 100%);
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 900;
   letter-spacing: 0.08em;
-  padding: 0.55rem 1.3rem;
-  border-radius: 9999px;
+  padding: 0.68rem 1.6rem;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(248, 183, 0, 0.35);
+  /* Slanted parallelogram cut like the reference button */
+  clip-path: polygon(14px 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+  box-shadow: 0 4px 18px rgba(230, 90, 13, 0.45);
   transition: all var(--transition-fast);
 }
 
-.btn-header-book:hover {
-  background-color: #FFA500;
+.btn-header-angled-book:hover {
+  background: linear-gradient(135deg, #FF833E 0%, #FF6F1E 100%);
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(248, 183, 0, 0.5);
+  box-shadow: 0 6px 24px rgba(230, 90, 13, 0.65);
+}
+
+.angled-btn-arrow {
+  width: 15px;
+  height: 15px;
+  stroke: #FFFFFF;
+  transition: transform var(--transition-fast);
+}
+
+.btn-header-angled-book:hover .angled-btn-arrow {
+  transform: translateX(4px);
 }
 
 .mobile-toggle {
@@ -2060,46 +2110,193 @@ body {
   }
 }
 
+/* ==========================================================================
+   CONQUER THE DUNES BANNER & DUAL CTA BUTTONS (Matching Reference Screenshot)
+   ========================================================================== */
+.conquer-banner-section {
+  position: relative;
+  width: 100%;
+  padding: clamp(5rem, 9vh, 7.5rem) clamp(1.5rem, 5vw, 4rem);
+  box-sizing: border-box;
+  background: radial-gradient(circle at 50% 25%, #221a16 0%, #0d0e12 65%, #08090b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.conquer-banner-backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.conquer-banner-glow {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(800px, 90vw);
+  height: 350px;
+  background: radial-gradient(ellipse, rgba(232, 108, 29, 0.18) 0%, transparent 70%);
+  filter: blur(40px);
+}
+
+.conquer-banner-content {
+  position: relative;
+  z-index: 10;
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.conquer-banner-eyebrow {
+  font-family: var(--font-body);
+  font-size: clamp(0.76rem, 0.85vw, 0.92rem);
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #E2E8F0;
+  margin-bottom: 0.8rem;
+  opacity: 0.9;
+}
+
+.conquer-banner-title {
+  font-family: var(--font-heading);
+  font-size: clamp(40px, 5.2vw, 84px);
+  font-weight: 950;
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+  margin: 0 0 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1em;
+}
+
+.conquer-banner-title .title-orange {
+  color: #FF6F1E;
+  text-shadow: 0 0 25px rgba(255, 111, 30, 0.35);
+}
+
+.conquer-banner-desc {
+  font-family: var(--font-body);
+  font-size: clamp(0.92rem, 1.05vw, 1.15rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 680px;
+  margin: 0 auto clamp(2rem, 3.5vh, 2.8rem);
+}
+
+/* Dual CTA Group matching Reference Screenshot */
+.conquer-cta-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 2vw, 1.6rem);
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+/* Solid Orange CTA: BOOK YOUR RIDE with Calendar Icon */
+.btn-conquer-book {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background-color: #FF6F1E;
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 0.92vw, 0.96rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.95rem 2.2rem;
+  border-radius: 6px;
+  border: 1.5px solid #FF6F1E;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(255, 111, 30, 0.35);
+  transition: all var(--transition-fast);
+}
+
+.btn-conquer-book:hover {
+  background-color: #E65A0D;
+  border-color: #E65A0D;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(255, 111, 30, 0.55);
+}
+
+.conquer-btn-icon {
+  width: 17px;
+  height: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.conquer-btn-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Dark Transparent Outline CTA: EXPLORE ALL PACKAGES with Arrow */
+.btn-conquer-explore {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: rgba(14, 16, 20, 0.6);
+  backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 0.92vw, 0.96rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.95rem 2.2rem;
+  border-radius: 6px;
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-conquer-explore:hover {
+  border-color: #FF6F1E;
+  color: #FF6F1E;
+  background: rgba(255, 111, 30, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.conquer-explore-arrow {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  transition: transform var(--transition-fast);
+}
+
+.btn-conquer-explore:hover .conquer-explore-arrow {
+  transform: translateX(4px);
+}
+
 @media (max-width: 640px) {
-  .about-stats-row {
+  .conquer-cta-group {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1.2rem;
+    width: 100%;
   }
-  .stat-divider {
+  .btn-conquer-book, .btn-conquer-explore {
+    width: 100%;
+  }
+  .btn-header-angled-book {
     display: none;
   }
-  .heading-line-1, .heading-line-2 {
-    font-size: 2.1rem;
-  }
-
-  /* Machine Mobile */
-  .machine-main-heading {
-    font-size: 34px;
-  }
-  .machine-specs-row {
-    grid-template-columns: 1fr;
-    gap: 0.85rem;
-  }
-  .machine-cta-row {
-    flex-direction: column;
-    width: 100%;
-    gap: 0.75rem;
-  }
-  .btn-book-machine, .btn-watch-machine {
-    width: 100%;
-    height: 52px;
-  }
-
-  /* Packages Mobile */
-  .packages-heading {
-    font-size: 32px;
-  }
-  .packages-cards-row {
-    grid-template-columns: 1fr;
-    width: 100%;
-  }
-  .package-card-image-wrap {
-    height: 200px;
+  .currency-selector-badge {
+    display: none;
   }
 }
+

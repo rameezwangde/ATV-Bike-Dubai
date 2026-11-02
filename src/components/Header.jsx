@@ -41,14 +41,24 @@ export default function Header({ onOpenBooking, isMobileMenuOpen, setIsMobileMen
             </a>
           </nav>
 
-          {/* Right Action / Mobile Toggle */}
+          {/* Right Action / Currency & Angled CTA Button matching reference */}
           <div className="header-right-action">
+            <div className="currency-selector-badge">
+              <span className="currency-country">AE</span>
+              <span className="currency-label">AED</span>
+              <span className="currency-pill">AED</span>
+            </div>
+
             <button
-              className="btn-header-book"
+              className="btn-header-angled-book"
               onClick={onOpenBooking}
             >
-              BOOK NOW
+              <span>BOOK YOUR RIDE</span>
+              <svg className="angled-btn-arrow" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </button>
+
             <button
               className="mobile-toggle"
               onClick={() => setIsMobileMenuOpen(true)}
