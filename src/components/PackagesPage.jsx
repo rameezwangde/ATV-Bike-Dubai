@@ -12,7 +12,7 @@ const CAN_AM_PACKAGES = [
     inclusionPill: 'FULL PRO GEAR • UNLIMITED HYDRATION • LEAD GUIDE',
     description:
       'Take the wheel of a self-driven 2000cc Can-Am Maverick X3 Turbo RR. Carve through towering red dunes with extreme horsepower, low-center stability, and custom Fox racing suspension.',
-    image: '/canam-2seat-dunes.jpg',
+    image: '/canam-2seat-clean.jpg',
     inclusions: [
       'Professional Desert Guide & Lead Convoy',
       'Full Protective Gear (Helmets, Goggles, Gloves)',
@@ -36,7 +36,7 @@ const CAN_AM_PACKAGES = [
     inclusionPill: 'FULL PRO GEAR • VIP DESERT LOUNGE • HIGH CREST CONVOY',
     description:
       'The ultimate shared adrenaline experience. Bring your family or crew into the heart of the desert in a long-wheelbase 4-seater Maverick MAX Turbo, offering luxury comfort and massive power.',
-    image: '/canam-4seat-dunes.jpg',
+    image: '/canam-4seat-clean.jpg',
     inclusions: [
       'High-Speed Dune Bashing & High-Crest Photo Stops',
       'Dedicated Desert Marshal & Recovery Team',
@@ -256,3 +256,4 @@ export default function PackagesPage({ onOpenBooking, selectedCategory = 'all' }
     </div>
   );
 }
+
