@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Footer({ onOpenBooking, onOpenPackages }) {
+export default function Footer({ onOpenBooking, onOpenPackages, onOpenPolicy }) {
   const whatsappUrl = "https://wa.me/971504799258?text=Hello%2C%20I%20would%20like%20to%20book%20an%20ATV%20Dubai%20desert%20experience!";
 
   return (
@@ -118,8 +118,8 @@ export default function Footer({ onOpenBooking, onOpenPackages }) {
           </div>
 
           <div className="footer-bottom-right">
-            <a href="#terms" onClick={(e) => { e.preventDefault(); onOpenBooking(); }}>Terms & Conditions</a>
-            <a href="#privacy" onClick={(e) => { e.preventDefault(); onOpenBooking(); }}>Privacy Policy</a>
+            <a href="#terms" onClick={(e) => { e.preventDefault(); onOpenPolicy('terms'); }}>Terms & Conditions</a>
+            <a href="#privacy" onClick={(e) => { e.preventDefault(); onOpenPolicy('privacy'); }}>Privacy Policy</a>
           </div>
         </div>
 
@@ -140,3 +140,4 @@ export default function Footer({ onOpenBooking, onOpenPackages }) {
     </footer>
   );
 }
+

@@ -6,6 +6,7 @@ import FleetShowcase from './components/FleetShowcase.jsx';
 import PopularPackages from './components/PopularPackages.jsx';
 import ClimaxCTA from './components/ClimaxCTA.jsx';
 import Footer from './components/Footer.jsx';
+import PolicyModal from './components/PolicyModal.jsx';
 import PackagesModal from './components/PackagesModal.jsx';
 import { VideoModal, BookingModal } from './components/Modals.jsx';
 
@@ -13,6 +14,8 @@ export default function App() {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [isPackagesModalOpen, setIsPackagesModalOpen] = useState(false);
+  const [isPolicyModalOpen, setIsPolicyModalOpen] = useState(false);
+  const [policyInitialTab, setPolicyInitialTab] = useState('terms');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [is4WD, setIs4WD] = useState(false);
 
@@ -116,6 +119,17 @@ export default function App() {
       <Footer
         onOpenBooking={() => setIsBookingModalOpen(true)}
         onOpenPackages={() => setIsPackagesModalOpen(true)}
+        onOpenPolicy={(tab) => {
+          setPolicyInitialTab(tab || 'terms');
+          setIsPolicyModalOpen(true);
+        }}
+      />
+
+      {/* Policy & Legal Modal (Terms & Conditions, Privacy Policy, Safety, Refunds) */}
+      <PolicyModal
+        isOpen={isPolicyModalOpen}
+        onClose={() => setIsPolicyModalOpen(false)}
+        initialTab={policyInitialTab}
       />
 
       {/* Full Packages Inventory Modal */}
