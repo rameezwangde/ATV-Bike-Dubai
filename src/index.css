@@ -11,6 +11,7 @@
   --color-warm-sand: #EAD9C3;
   
   --font-body: 'Montserrat', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
   --font-brush: 'Permanent Marker', 'Sedgwick Ave Display', 'Bangers', cursive;
   --font-digital: 'Orbitron', monospace;
   
@@ -2452,8 +2453,8 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
-  background-color: #E6392E;
-  color: #FFFFFF;
+  background-color: var(--color-primary-yellow);
+  color: #111315;
   font-family: var(--font-body);
   font-size: 0.82rem;
   font-weight: 900;
@@ -2461,16 +2462,16 @@ body {
   text-transform: uppercase;
   text-decoration: none;
   padding: 0.75rem 1.6rem;
-  border-radius: 4px;
+  border-radius: 9999px;
   cursor: pointer;
   transition: all var(--transition-fast);
-  box-shadow: 0 4px 14px rgba(230, 57, 46, 0.35);
+  box-shadow: 0 4px 14px rgba(248, 183, 0, 0.35);
 }
 
 .btn-footer-whatsapp:hover {
-  background-color: #C92A20;
+  background-color: #FFA500;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(230, 57, 46, 0.5);
+  box-shadow: 0 6px 18px rgba(248, 183, 0, 0.5);
 }
 
 .whatsapp-arrow {
@@ -2485,12 +2486,12 @@ body {
 
 /* Headings in Columns */
 .footer-heading {
-  font-family: var(--font-heading);
-  font-size: 0.88rem;
+  font-family: var(--font-body);
+  font-size: 0.86rem;
   font-weight: 900;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #E6392E;
+  color: var(--color-primary-yellow);
   margin: 0 0 1.25rem;
 }
 
@@ -2544,12 +2545,12 @@ body {
 
 /* Follow the Adventure */
 .socials-subheading {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: 0.82rem;
   font-weight: 900;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #E6392E;
+  color: var(--color-primary-yellow);
   margin: 0 0 0.85rem;
 }
 
@@ -3065,16 +3066,18 @@ body {
   font-weight: 800;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: #E6392E;
+  color: var(--color-primary-yellow);
   margin-bottom: 0.4rem;
 }
 
 .contact-section-heading {
-  font-family: var(--font-heading);
-  font-size: clamp(34px, 4vw, 58px);
-  font-weight: 950;
+  font-family: var(--font-body);
+  font-size: clamp(34px, 4vw, 56px);
+  font-weight: 900;
+  font-style: italic;
   line-height: 1.05;
   text-transform: uppercase;
+  letter-spacing: -0.01em;
   margin: 0 0 2.2rem;
   display: flex;
   flex-direction: column;
@@ -3085,8 +3088,8 @@ body {
 }
 
 .contact-section-heading .heading-accent {
-  color: #E6392E;
-  text-shadow: 0 0 24px rgba(230, 57, 46, 0.3);
+  color: var(--color-primary-yellow);
+  text-shadow: 0 0 24px rgba(248, 183, 0, 0.35);
 }
 
 /* Info Groups */
@@ -3095,16 +3098,17 @@ body {
 }
 
 .info-group-title {
-  font-family: var(--font-heading);
-  font-size: 0.84rem;
-  font-weight: 900;
-  letter-spacing: 0.12em;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #E6392E;
+  color: var(--color-primary-yellow);
   margin: 0 0 0.5rem;
 }
 
 .info-text {
+  font-family: var(--font-body);
   font-size: 0.95rem;
   line-height: 1.6;
   color: #CBD5E1;
@@ -3124,6 +3128,7 @@ body {
 }
 
 .info-link {
+  font-family: var(--font-body);
   font-size: 0.95rem;
   color: #CBD5E1;
   text-decoration: none;
@@ -3144,6 +3149,7 @@ body {
 }
 
 .whatsapp-inline-link {
+  font-family: var(--font-body);
   color: #25D366;
   font-weight: 700;
   text-decoration: none;
@@ -3164,6 +3170,7 @@ body {
   align-items: center;
   gap: 0.5rem;
   color: #CBD5E1;
+  font-family: var(--font-body);
   font-size: 0.92rem;
   font-weight: 600;
   text-decoration: none;
@@ -3189,8 +3196,8 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.65rem;
-  background-color: #E6392E;
-  color: #FFFFFF;
+  background-color: var(--color-primary-yellow);
+  color: #111315;
   font-family: var(--font-body);
   font-size: 0.84rem;
   font-weight: 900;
@@ -3198,16 +3205,16 @@ body {
   text-transform: uppercase;
   text-decoration: none;
   padding: 0.85rem 1.8rem;
-  border-radius: 4px;
+  border-radius: 9999px;
   cursor: pointer;
   transition: all var(--transition-fast);
-  box-shadow: 0 6px 20px rgba(230, 57, 46, 0.4);
+  box-shadow: 0 6px 20px rgba(248, 183, 0, 0.35);
 }
 
 .btn-chat-whatsapp:hover {
-  background-color: #C92A20;
+  background-color: #FFA500;
   transform: translateY(-2px);
-  box-shadow: 0 10px 26px rgba(230, 57, 46, 0.55);
+  box-shadow: 0 10px 26px rgba(248, 183, 0, 0.5);
 }
 
 .wa-btn-icon {
