@@ -3,7 +3,14 @@ import React from 'react';
 export default function ConquerBanner({ onOpenBooking, onExplorePackages }) {
   return (
     <section className="conquer-banner-section" id="conquer">
+      {/* Cinematic Desert ATV Action Background */}
       <div className="conquer-banner-backdrop">
+        <img
+          src="/conquer-atv-banner-bg.jpg"
+          alt="Dubai Desert ATV Dune Adventure"
+          className="conquer-bg-img"
+        />
+        <div className="conquer-banner-overlay"></div>
         <div className="conquer-banner-glow"></div>
       </div>
 
@@ -53,3 +60,4 @@ export default function ConquerBanner({ onOpenBooking, onExplorePackages }) {
     </section>
   );
 }
+
