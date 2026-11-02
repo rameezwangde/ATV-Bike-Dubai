@@ -5,6 +5,7 @@ import AboutUs from './components/AboutUs.jsx';
 import FleetShowcase from './components/FleetShowcase.jsx';
 import PopularPackages from './components/PopularPackages.jsx';
 import ClimaxCTA from './components/ClimaxCTA.jsx';
+import Footer from './components/Footer.jsx';
 import PackagesModal from './components/PackagesModal.jsx';
 import { VideoModal, BookingModal } from './components/Modals.jsx';
 
@@ -109,6 +110,12 @@ export default function App() {
       <ClimaxCTA
         onOpenBooking={() => setIsBookingModalOpen(true)}
         onExplorePackages={() => setIsPackagesModalOpen(true)}
+      />
+
+      {/* FOOTER */}
+      <Footer
+        onOpenBooking={() => setIsBookingModalOpen(true)}
+        onOpenPackages={() => setIsPackagesModalOpen(true)}
       />
 
       {/* Full Packages Inventory Modal */}

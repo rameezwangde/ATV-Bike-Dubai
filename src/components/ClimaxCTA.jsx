@@ -87,3 +87,4 @@ export default function ClimaxCTA({ onOpenBooking, onExplorePackages }) {
     </section>
   );
 }
+
