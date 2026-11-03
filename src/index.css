@@ -4895,3 +4895,830 @@ body {
     line-height: 1.5;
   }
 }
+
+/* ==========================================================================
+   CHAPTER 2: EXPEDITION JOURNAL & DESERT ROUTE STORY
+   Warm sand / beige / off-white editorial narrative layout
+   ========================================================================== */
+.about-journal-section {
+  position: relative;
+  width: 100%;
+  background-color: #F4EFE6;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(226, 204, 168, 0.45) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(226, 204, 168, 0.35) 0%, transparent 45%);
+  padding: clamp(5rem, 8vh, 7.5rem) clamp(1.5rem, 4.5vw, 5rem);
+  box-sizing: border-box;
+  overflow: hidden;
+  color: #1A1C1F;
+}
+
+/* Topographic Contour Lines & Subtle Tire Tread Detail */
+.about-journal-bg-pattern {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.dune-contours-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+/* Tire watermark entering subtly from the right edge */
+.tire-tread-watermark {
+  position: absolute;
+  right: -60px;
+  top: 15%;
+  width: 380px;
+  height: 480px;
+  background: repeating-linear-gradient(
+    -35deg,
+    rgba(195, 160, 110, 0.08) 0px,
+    rgba(195, 160, 110, 0.08) 12px,
+    transparent 12px,
+    transparent 28px
+  );
+  border-radius: 40px;
+  transform: rotate(12deg);
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, transparent 75%);
+}
+
+.about-journal-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1380px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------------------------------------------------------------------------
+   Top Story & History Editorial Row (Desktop Asymmetrical Layout)
+   -------------------------------------------------------------------------- */
+.journal-editorial-row {
+  display: grid;
+  grid-template-columns: 1.15fr 0.35fr 1fr;
+  align-items: center;
+  gap: clamp(1.5rem, 3vw, 3.5rem);
+  position: relative;
+}
+
+/* Left: Brand Story */
+.journal-story-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.journal-eyebrow-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.2rem;
+}
+
+.journal-eyebrow-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #F8B700;
+  box-shadow: 0 0 10px rgba(248, 183, 0, 0.6);
+}
+
+.journal-eyebrow-text {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #5D5447;
+}
+
+.journal-main-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.3rem, 3.6vw, 3.8rem);
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1.08;
+  color: #141618;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.6rem;
+}
+
+.heading-adventure-brush {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-brush);
+  color: #D98200;
+  letter-spacing: 0.02em;
+  padding-bottom: 8px;
+}
+
+.journal-brush-mini-svg {
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  width: 100%;
+  height: 12px;
+  pointer-events: none;
+}
+
+.journal-story-copy {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.1vw, 1.12rem);
+  line-height: 1.74;
+  color: #38342E;
+  margin-bottom: 2rem;
+  max-width: 580px;
+}
+
+.journal-location-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(226, 204, 168, 0.35);
+  border: 1px solid rgba(195, 160, 110, 0.4);
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  color: #2D271F;
+}
+
+.journal-location-badge .pin-icon {
+  width: 16px;
+  height: 16px;
+  color: #D98200;
+}
+
+.location-name {
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.location-coords {
+  font-size: 0.74rem;
+  font-family: monospace;
+  color: #7A6F5D;
+  border-left: 1px solid rgba(0, 0, 0, 0.15);
+  padding-left: 0.6rem;
+}
+
+/* Route Connector between Story and History */
+.journal-route-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 180px;
+}
+
+.expedition-path-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Right: History Editorial Card (Organic Offset Block) */
+.journal-history-col {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.history-editorial-card {
+  position: relative;
+  background: #EBE3D5;
+  border: 1px solid rgba(195, 160, 110, 0.45);
+  border-left: 3px solid #F8B700;
+  border-radius: 14px;
+  padding: clamp(2rem, 3.2vw, 3rem);
+  max-width: 520px;
+  box-shadow: 0 16px 36px rgba(120, 100, 70, 0.08);
+}
+
+.history-header-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px dashed rgba(195, 160, 110, 0.5);
+}
+
+.history-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #141618;
+}
+
+.history-year-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #A36B00;
+  background: rgba(248, 183, 0, 0.18);
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+}
+
+.journal-history-copy {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.72;
+  color: #3C372F;
+  margin-bottom: 1.6rem;
+}
+
+.history-milestone-marker {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.marker-dash {
+  width: 28px;
+  height: 2px;
+  background-color: #F8B700;
+  border-radius: 2px;
+}
+
+.marker-caption {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #6E6352;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   Middle Journey Divider (Winding Dune Contour Route)
+   -------------------------------------------------------------------------- */
+.journal-mid-route-band {
+  width: 100%;
+  height: 52px;
+  margin: clamp(2.5rem, 5vh, 4rem) 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mid-route-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Bottom Area: Mission & Vision (Two Narrative Panels separated by Pillar)
+   -------------------------------------------------------------------------- */
+.journal-mission-vision-row {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  align-items: stretch;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  width: 100%;
+}
+
+.mv-panel {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.8rem, 2.8vw, 2.5rem);
+  background: #EBE3D5;
+  border: 1px solid rgba(195, 160, 110, 0.35);
+  border-radius: 16px;
+  box-shadow: 0 10px 28px rgba(120, 100, 70, 0.06);
+  position: relative;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.mv-panel:hover {
+  transform: translateY(-2px);
+  border-color: rgba(248, 183, 0, 0.6);
+}
+
+.mv-panel-mission {
+  border-top: 3px solid #141618;
+}
+
+.mv-panel-vision {
+  border-top: 3px solid #F8B700;
+}
+
+.mv-tag-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  margin-bottom: 1.1rem;
+}
+
+.mv-num {
+  font-family: monospace;
+  font-size: 0.86rem;
+  font-weight: 800;
+  color: #D98200;
+}
+
+.mv-label {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #141618;
+}
+
+.mv-statement {
+  font-family: var(--font-body);
+  font-size: clamp(0.96rem, 1.05vw, 1.08rem);
+  line-height: 1.7;
+  color: #38342E;
+  margin: 0;
+}
+
+/* Central Route Separator Pillar */
+.mv-separator-pillar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.pillar-line {
+  width: 1.5px;
+  flex: 1;
+  background: linear-gradient(180deg, transparent, rgba(217, 130, 0, 0.4), transparent);
+}
+
+.pillar-waypoint {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #F4EFE6;
+  border: 1.5px solid #F8B700;
+}
+
+.pillar-waypoint svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Mobile & Tablet Design
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .journal-editorial-row {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .journal-route-connector {
+    display: none;
+  }
+
+  .history-editorial-card {
+    max-width: 100%;
+  }
+
+  .journal-mission-vision-row {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+
+  .mv-separator-pillar {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-journal-section {
+    padding: 3.8rem 1.25rem;
+  }
+
+  .journal-main-heading {
+    font-size: 2rem;
+    line-height: 1.12;
+  }
+
+  .heading-adventure-brush {
+    font-size: 2.1rem;
+  }
+
+  .journal-story-copy {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .history-editorial-card {
+    padding: 1.5rem 1.2rem;
+  }
+
+  .journal-history-copy {
+    font-size: 0.92rem;
+  }
+
+  .journal-mid-route-band {
+    margin: 2rem 0;
+  }
+
+  .mv-panel {
+    padding: 1.5rem 1.2rem;
+  }
+
+  .mv-statement {
+    font-size: 0.92rem;
+  }
+}
+
+/* ==========================================================================
+   CHAPTER 3: WHY RIDE WITH US
+   Asymmetrical Split Layout, Sculpted Dune Crop, Minimal 2x2 Outline Grid
+   ========================================================================== */
+.why-ride-section {
+  position: relative;
+  width: 100%;
+  background-color: #EEE6D8;
+  background-image: 
+    radial-gradient(circle at 85% 15%, rgba(220, 194, 150, 0.4) 0%, transparent 45%),
+    radial-gradient(circle at 15% 85%, rgba(220, 194, 150, 0.3) 0%, transparent 50%);
+  padding: clamp(5.5rem, 9vh, 8rem) clamp(1.5rem, 4.5vw, 5rem);
+  box-sizing: border-box;
+  overflow: hidden;
+  color: #1A1C1F;
+  border-top: 1px solid rgba(195, 160, 110, 0.25);
+}
+
+.why-ride-bg-contours {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.why-contours-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.75;
+}
+
+.why-ride-container {
+  position: relative;
+  z-index: 10;
+  max-width: 1380px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Asymmetrical Split Grid: 45% Sculpted Dune Image / 55% Content & Points */
+.why-ride-split-grid {
+  display: grid;
+  grid-template-columns: 46% 54%;
+  gap: clamp(2.5rem, 4.5vw, 5rem);
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   LEFT: Sculpted Dune Lifestyle Frame (Organic, dune-curved crop)
+   -------------------------------------------------------------------------- */
+.why-ride-visual-col {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dune-sculpted-frame {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  aspect-ratio: 4 / 3.2;
+  border-radius: 40px 14px 44px 18px;
+  overflow: hidden;
+  box-shadow: 
+    0 24px 50px rgba(110, 88, 55, 0.16),
+    0 6px 18px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: #E2CCA8;
+}
+
+.dune-lifestyle-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dune-sculpted-frame:hover .dune-lifestyle-img {
+  transform: scale(1.03);
+}
+
+/* Warm ambient desert glow overlay */
+.dune-ambient-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(248, 183, 0, 0.12) 0%,
+    transparent 45%,
+    rgba(18, 20, 24, 0.22) 100%
+  );
+  pointer-events: none;
+}
+
+/* Subtle desert route trace starting near the image */
+.why-route-trace-svg {
+  position: absolute;
+  right: -24px;
+  bottom: -18px;
+  width: 130px;
+  height: 90px;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
+}
+
+/* --------------------------------------------------------------------------
+   RIGHT: Heading, Brand Copy & 2x2 Reasons Grid
+   -------------------------------------------------------------------------- */
+.why-ride-content-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.why-eyebrow-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.1rem;
+}
+
+.why-eyebrow-accent {
+  width: 32px;
+  height: 2px;
+  background-color: #F8B700;
+  border-radius: 2px;
+}
+
+.why-eyebrow-text {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #5D5447;
+}
+
+.why-main-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.3rem, 3.4vw, 3.6rem);
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1.08;
+  color: #141618;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.5rem;
+}
+
+.heading-experience-brush {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-brush);
+  color: #D98200;
+  letter-spacing: 0.02em;
+  padding-bottom: 8px;
+}
+
+.why-brush-underline-svg {
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  width: 100%;
+  height: 12px;
+  pointer-events: none;
+}
+
+.why-brand-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  font-family: var(--font-body);
+  font-size: clamp(0.96rem, 1.05vw, 1.08rem);
+  line-height: 1.68;
+  color: #38342E;
+  margin-bottom: 2.2rem;
+  max-width: 620px;
+}
+
+.why-brand-copy p {
+  margin: 0;
+}
+
+/* 2 x 2 Editorial Grid */
+.why-reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1.4rem, 2.2vw, 2.2rem);
+  width: 100%;
+}
+
+.reason-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-top: 1px solid rgba(195, 160, 110, 0.4);
+}
+
+.reason-icon-wrap {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #141618;
+  background: rgba(248, 183, 0, 0.22);
+  border-radius: 8px;
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+.reason-icon-wrap svg {
+  width: 100%;
+  height: 100%;
+  color: #8C5700;
+}
+
+.reason-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.reason-title {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #141618;
+  margin: 0 0 0.4rem 0;
+}
+
+.reason-desc {
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: #4C463C;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Micro Highlight Statement at Bottom
+   -------------------------------------------------------------------------- */
+.why-micro-statement-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.8rem;
+  margin-top: clamp(3.5rem, 6vh, 5rem);
+  width: 100%;
+}
+
+.micro-statement-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(195, 160, 110, 0.5), transparent);
+}
+
+.why-micro-statement {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  font-family: var(--font-body);
+  font-size: clamp(0.92rem, 1.1vw, 1.12rem);
+  font-weight: 700;
+  font-style: italic;
+  color: #2D271F;
+  margin: 0;
+}
+
+.statement-dot {
+  color: #F8B700;
+}
+
+.statement-highlight {
+  color: #A36B00;
+  position: relative;
+  border-bottom: 2px solid #F8B700;
+  padding-bottom: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Mobile & Tablet Design
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .why-ride-split-grid {
+    grid-template-columns: 1fr;
+    gap: 2.8rem;
+  }
+
+  /* On tablet / mobile: heading first, then image, then copy, then reasons */
+  .why-ride-content-col {
+    order: 1;
+  }
+
+  .why-main-heading,
+  .why-eyebrow-wrap {
+    order: 1;
+  }
+
+  .why-ride-visual-col {
+    order: 2;
+    margin-bottom: 1rem;
+  }
+
+  .why-brand-copy {
+    order: 3;
+  }
+
+  .why-reasons-grid {
+    order: 4;
+  }
+
+  .why-ride-content-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dune-sculpted-frame {
+    max-width: 100%;
+    aspect-ratio: 16 / 10;
+  }
+
+  .why-route-trace-svg {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .why-ride-section {
+    padding: 3.8rem 1.25rem;
+  }
+
+  .why-main-heading {
+    font-size: 2rem;
+    line-height: 1.12;
+  }
+
+  .heading-experience-brush {
+    font-size: 2.1rem;
+  }
+
+  .why-reasons-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .why-micro-statement {
+    font-size: 0.88rem;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .statement-dot {
+    display: none;
+  }
+
+  .why-micro-statement-wrap {
+    margin-top: 2.8rem;
+  }
+}
+
+
