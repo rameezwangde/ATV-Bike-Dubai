@@ -198,6 +198,128 @@ const ALL_PACKAGES = {
         { label: '2 Hours Sunset VIP', price: '2,200 AED' }
       ]
     }
+  ],
+  'quad': [
+    {
+      id: 'desert-quad-bike-50cc',
+      title: 'DESERT QUAD BIKE — 50 CC',
+      categoryBadge: 'KIDS & JUNIOR',
+      price: '250 AED',
+      duration: '30 Mins / 1 Hour',
+      capacity: '1 Junior Rider',
+      transfer: '300 AED 2-Way Transport',
+      inclusionPill: 'JUNIOR SAFETY GOVERNOR • ENCLOSED TRACK • FULL GEAR',
+      description:
+        'The ideal starting experience for young thrill-seekers. Safe, fully governed 50cc automatic quad bikes designed for younger riders under dedicated desert instructor supervision.',
+      image: '/quad-50cc-clean.jpg',
+      inclusions: [
+        'Instructor Guidance & Dedicated Junior Circuit',
+        'Kids Full-Face Helmet, Goggles & Chest Guard',
+        'Chilled Hydration & Complimentary Refreshments',
+        'Family Photo Opportunities'
+      ],
+      pricingOptions: [
+        { label: '30 Mins Ride', price: '250 AED' },
+        { label: '1 Hour Ride', price: '450 AED' },
+        { label: '2 Hours Sunset VIP', price: '800 AED' }
+      ]
+    },
+    {
+      id: 'desert-quad-bike-150cc',
+      title: 'DESERT QUAD BIKE — 150 CC',
+      categoryBadge: 'BEGINNER / INTERMEDIATE',
+      price: '300 AED',
+      duration: '30 Mins / 1 Hour',
+      capacity: '1 Rider Solo ATV',
+      transfer: '300 AED 2-Way Transport',
+      inclusionPill: 'AUTOMATIC TRANSMISSION • LEAD MARSHALL • OPEN DUNES',
+      description:
+        'Smooth, responsive, and easy to handle. The 150cc quad bike is perfect for teens and adult beginners wanting to experience riding the open desert dunes with full confidence.',
+      image: '/quad-150cc-clean.jpg',
+      inclusions: [
+        'Professional Desert Guide Escort',
+        'Full Safety Helmet, Dust Goggles & Gloves',
+        'Sandboarding on High Dunes',
+        'Unlimited Bottled Water'
+      ],
+      pricingOptions: [
+        { label: '30 Mins Ride', price: '300 AED' },
+        { label: '1 Hour Ride', price: '550 AED' },
+        { label: '2 Hours Sunset VIP', price: '1,000 AED' }
+      ]
+    },
+    {
+      id: 'desert-quad-bike-250cc',
+      title: 'DESERT QUAD BIKE — 250 CC',
+      categoryBadge: 'SPORTS ATV',
+      price: '400 AED',
+      duration: '30 Mins / 1 Hour',
+      capacity: '1 Rider Sport Class',
+      transfer: '300 AED 2-Way Transport',
+      inclusionPill: 'SPORT SUSPENSION • HIGH-CREST ROOSTER TRAILS • PRO GUIDE',
+      description:
+        'A fan-favorite sport ATV with explosive torque and lightweight nimbleness. Drift across high sand bowls and carve up towering red dune faces with pure manual/semi-auto control.',
+      image: '/quad-250cc-clean.jpg',
+      inclusions: [
+        'Advanced Desert Route Escort',
+        'Pro Riding Equipment & Safety Briefing',
+        'Sandboarding & Scenic Sunset Stops',
+        'Cold Drinks & Recovery Support'
+      ],
+      pricingOptions: [
+        { label: '30 Mins Ride', price: '400 AED' },
+        { label: '1 Hour Ride', price: '700 AED' },
+        { label: '2 Hours Sunset VIP', price: '1,300 AED' }
+      ]
+    },
+    {
+      id: 'desert-quad-bike-400cc',
+      title: 'DESERT QUAD BIKE — 400 CC',
+      categoryBadge: '4X4 POWER ATV',
+      price: '500 AED',
+      duration: '30 Mins / 1 Hour',
+      capacity: '1 Rider Heavy Duty',
+      transfer: '300 AED 2-Way Transport',
+      inclusionPill: 'SELECTABLE 4X4 • HIGH TRACTION • EXTREME RED DUNES',
+      description:
+        'Maximum quad-biking power. Heavy-duty 400cc 4x4 engine built to conquer Dubai’s steepest dunes effortlessly, giving you unyielding grip and commanding high-crest stability.',
+      image: '/quad-400cc-clean.jpg',
+      inclusions: [
+        'Dedicated Desert Lead Marshall',
+        'Premium Protective Gear & Dust Mask',
+        'Complimentary High-Dune Sandboarding',
+        'VIP Hydration & Photo Sessions'
+      ],
+      pricingOptions: [
+        { label: '30 Mins Ride', price: '500 AED' },
+        { label: '1 Hour Ride', price: '900 AED' },
+        { label: '2 Hours Sunset VIP', price: '1,600 AED' }
+      ]
+    },
+    {
+      id: 'ktm-dirt-bike-450cc',
+      title: 'KTM DIRT BIKE — 450 CC',
+      categoryBadge: 'PRO ENDURO',
+      price: '850 AED',
+      duration: '30 Mins / 1 Hour',
+      capacity: '1 Expert Rider',
+      transfer: '300 AED 2-Way Transport',
+      inclusionPill: 'COMPETITION SPEC • WP SUSPENSION • PADDLE SAND TIRE',
+      description:
+        'The apex two-wheel desert weapon. Genuine 450cc KTM dirt bike equipped with sand-paddle tires and WP competition suspension for seasoned riders seeking raw motocross speed across Dubai dunes.',
+      image: '/ktm-dirtbike-450-clean.jpg',
+      inclusions: [
+        'Expert Motocross Desert Lead Rider',
+        'Full Enduro Armor, Boots, Helmet & Goggles',
+        'Mechanical Support & Chilled Drinks',
+        'High-Speed Dune Riding Lines'
+      ],
+      pricingOptions: [
+        { label: '30 Mins Ride', price: '850 AED' },
+        { label: '1 Hour Ride', price: '1,500 AED' },
+        { label: '2 Hours Sunset VIP', price: '2,700 AED' }
+      ]
+    }
   ]
 };
 
