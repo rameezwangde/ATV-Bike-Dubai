@@ -2893,7 +2893,7 @@ body {
   }
 
   .currency-selector-badge {
-    display: none;
+    display: inline-flex;
   }
 }
 
@@ -4533,7 +4533,7 @@ body {
 
 @media (max-width: 640px) {
   .site-header {
-    padding: 0 1rem;
+    padding: 0 0.85rem;
     height: 64px;
   }
 
@@ -4545,10 +4545,16 @@ body {
     font-size: 0.58rem;
   }
 
+  .header-right-action {
+    gap: 0.4rem;
+  }
+
   .currency-selector-badge,
   .language-selector-badge {
-    padding: 0.32rem 0.55rem;
-    font-size: 0.72rem;
+    display: inline-flex !important;
+    padding: 0.35rem 0.55rem;
+    font-size: 0.74rem;
+    gap: 0.3rem;
   }
 
   .currency-pill {
@@ -4556,7 +4562,15 @@ body {
   }
 
   .dropdown-panel-menu {
-    right: -20px;
+    right: -10px;
+  }
+
+  .currency-panel {
+    width: min(290px, 86vw);
+  }
+
+  .language-panel {
+    width: min(220px, 75vw);
   }
 
   .hero-content-stage {
