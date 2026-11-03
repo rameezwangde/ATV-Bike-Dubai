@@ -124,22 +124,13 @@ export default function App() {
               />
             </div>
 
-            {/* Interactive CTA Hotspots */}
+            {/* Interactive Centered Booking Hotspot directly over BOOK YOUR RIDE */}
             <div className="hero-cta-hotspots-container">
               <button
                 className="btn-book-ride-hotspot"
                 onClick={() => setIsBookingModalOpen(true)}
                 title="Book Your Ride"
                 aria-label="Book Your Ride"
-              >
-                <span className="hotspot-glow"></span>
-              </button>
-
-              <button
-                className="btn-watch-tour-hotspot"
-                onClick={() => setIsVideoModalOpen(true)}
-                title="Watch Tour"
-                aria-label="Watch Tour"
               >
                 <span className="hotspot-glow"></span>
               </button>

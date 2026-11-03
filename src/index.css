@@ -399,27 +399,31 @@ body {
 /* CTA Hotspots */
 .hero-cta-hotspots-container {
   position: absolute;
-  top: 52%;
-  left: 50%;
+  top: 74.5%;
+  left: 34.5%;
   transform: translateX(-50%);
-  width: min(920px, 68vw);
-  height: 8vh;
+  width: auto;
+  height: auto;
   z-index: 25;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(1.8rem, 3.8vw, 3.5rem);
 }
 
-.btn-book-ride-hotspot, .btn-watch-tour-hotspot {
+.btn-book-ride-hotspot {
   position: relative;
-  width: clamp(180px, 16vw, 250px);
-  height: clamp(44px, 5.8vh, 58px);
+  width: clamp(200px, 32.5vw, 545px);
+  height: clamp(48px, 13vh, 122px);
   border-radius: 9999px;
   background: transparent;
   border: none;
   cursor: pointer;
   outline: none;
+  transition: transform 0.25s ease;
+}
+
+.btn-book-ride-hotspot:hover {
+  transform: scale(1.025);
 }
 
 .hotspot-glow {
