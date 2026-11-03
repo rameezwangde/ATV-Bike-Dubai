@@ -320,6 +320,34 @@ const ALL_PACKAGES = {
         { label: '2 Hours Sunset VIP', price: '2,700 AED' }
       ]
     }
+  ],
+  'safari': [
+    {
+      id: 'evening-desert-safari',
+      title: 'EVENING DESERT SAFARI IN DUBAI',
+      categoryBadge: 'DESERT SAFARI',
+      price: '99 AED',
+      duration: '6 Hours Full Evening',
+      capacity: 'Per Person / Family / Group',
+      transfer: 'Complimentary 2-Way Hotel Pickup',
+      inclusionPill: 'DUNE BASHING • BBQ DINNER BUFFET • LIVE SHOWS • CAMEL RIDE',
+      description:
+        'Experience the authentic magic of Arabia. Includes 4x4 red dune bashing, sunset photography, live belly dance & Tanoura shows, fire performances, camel riding, henna painting, and a lavish 5-star international BBQ buffet dinner.',
+      image: '/desert-safari-evening-clean.jpg',
+      inclusions: [
+        '4x4 Land Cruiser High Dune Bashing (30-45 mins)',
+        'Sunset Photo Stop on High Red Dunes',
+        'Live Belly Dance, Tanoura Dance & Fire Show',
+        'Unlimited BBQ Buffet (Veg & Non-Veg) with Soft Drinks',
+        'Camel Ride, Henna Tattoos & Arabic Dress Photos',
+        'Sandboarding on Golden Dunes Included'
+      ],
+      pricingOptions: [
+        { label: 'Standard Camp', price: '99 AED' },
+        { label: 'VIP Table Service', price: '160 AED' },
+        { label: 'Private 4x4 Cruiser (6 Pax)', price: '550 AED' }
+      ]
+    }
   ]
 };
 

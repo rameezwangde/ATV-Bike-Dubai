@@ -47,21 +47,35 @@ export default function App() {
     };
   }, []);
 
-  // Sync hash routing e.g. #/contact, #contact, #packages, #/packages
+  // Sync pathname and hash routing e.g. /contact, /packages, #/contact, #packages
   useEffect(() => {
-    const handleHash = () => {
+    const handleRoute = () => {
       const hash = window.location.hash;
-      if (hash === '#/contact' || hash === '#contact') {
+      const pathname = window.location.pathname.replace(/\/$/, ''); // strip trailing slash
+
+      if (
+        pathname === '/contact' ||
+        hash === '#/contact' ||
+        hash === '#contact'
+      ) {
         setCurrentPage('contact');
-      } else if (hash === '#/packages' || hash === '#packages') {
+      } else if (
+        pathname === '/packages' ||
+        hash === '#/packages' ||
+        hash === '#packages'
+      ) {
         setCurrentPage('packages');
       } else {
         setCurrentPage('home');
       }
     };
-    handleHash();
-    window.addEventListener('hashchange', handleHash);
-    return () => window.removeEventListener('hashchange', handleHash);
+    handleRoute();
+    window.addEventListener('hashchange', handleRoute);
+    window.addEventListener('popstate', handleRoute);
+    return () => {
+      window.removeEventListener('hashchange', handleRoute);
+      window.removeEventListener('popstate', handleRoute);
+    };
   }, []);
 
   return (
