@@ -51,16 +51,7 @@ function Header({
     if (hash) {
       window.location.hash = hash;
     }
-    if (pageId === 'home') {
-      if (hash === '#about') {
-        setTimeout(() => {
-          const el = document.getElementById('about');
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }, 50);
-      } else if (hash === '#hero') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -109,7 +100,7 @@ function Header({
               className={`nav-item ${activePage === 'about' ? 'active' : ''}`}
               onClick={(e) => {
                 e.preventDefault();
-                handleNavClick('home', '#about');
+                handleNavClick('about', '#about');
               }}
             >
               <span>{t('aboutUs')}</span>
@@ -298,7 +289,7 @@ function Header({
             onClick={(e) => {
               e.preventDefault();
               setIsMobileMenuOpen(false);
-              handleNavClick('home', '#about');
+              handleNavClick('about', '#about');
             }}
           >
             {t('aboutUs')}

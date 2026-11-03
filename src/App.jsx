@@ -8,6 +8,7 @@ import ClimaxCTA from './components/ClimaxCTA.jsx';
 import Footer from './components/Footer.jsx';
 import ContactPage from './components/ContactPage.jsx';
 import PackagesPage from './components/PackagesPage.jsx';
+import AboutPage from './components/AboutPage.jsx';
 import PolicyModal from './components/PolicyModal.jsx';
 import PackagesModal from './components/PackagesModal.jsx';
 import { VideoModal, BookingModal } from './components/Modals.jsx';
@@ -62,6 +63,12 @@ export default function App() {
       ) {
         setCurrentPage('contact');
       } else if (
+        pathname === '/about' ||
+        hash === '#/about' ||
+        hash === '#about'
+      ) {
+        setCurrentPage('about');
+      } else if (
         pathname === '/packages' ||
         hash === '#/packages' ||
         hash === '#packages'
@@ -93,20 +100,15 @@ export default function App() {
           if (page === 'contact') {
             window.location.hash = '#contact';
             window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else if (page === 'about') {
+            window.location.hash = '#about';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
           } else if (page === 'packages') {
             window.location.hash = '#packages';
             window.scrollTo({ top: 0, behavior: 'smooth' });
           } else {
-            if (hash === '#about') {
-              window.location.hash = '#about';
-              setTimeout(() => {
-                const el = document.getElementById('about');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
-              }, 50);
-            } else {
-              window.location.hash = '#hero';
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+            window.location.hash = '#hero';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
           }
         }}
       />
@@ -115,6 +117,9 @@ export default function App() {
       {currentPage === 'contact' ? (
         /* SEPARATE CONTACT PAGE VIEW */
         <ContactPage onOpenBooking={() => setIsBookingModalOpen(true)} />
+      ) : currentPage === 'about' ? (
+        /* BRAND NEW DEDICATED ABOUT US PAGE VIEW */
+        <AboutPage onOpenBooking={() => setIsBookingModalOpen(true)} />
       ) : currentPage === 'packages' ? (
         /* SEPARATE PACKAGES PAGE VIEW WITH INNOVATIVE CAN-AM CARDS */
         <PackagesPage onOpenBooking={() => setIsBookingModalOpen(true)} />

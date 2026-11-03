@@ -66,7 +66,7 @@ export default function Footer({ onOpenBooking, onOpenPackages, onOpenPolicy, on
                   onClick={(e) => {
                     if (onNavigate) {
                       e.preventDefault();
-                      onNavigate('home', '#about');
+                      onNavigate('about', '#about');
                     }
                   }}
                 >
