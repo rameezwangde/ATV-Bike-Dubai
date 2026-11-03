@@ -58,8 +58,8 @@ body {
 .hero-container {
   position: relative;
   width: 100vw;
-  height: 100vh;
-  max-height: 100vh;
+  min-height: 100svh;
+  height: 100svh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -82,7 +82,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top !important;
+  object-position: center bottom !important;
   user-select: none;
   display: block;
 }
@@ -96,14 +96,14 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: clamp(65px, 8vh, 85px);
+  height: clamp(72px, 8.5vh, 88px);
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 clamp(1.5rem, 4vw, 4rem);
   box-sizing: border-box;
-  background: linear-gradient(180deg, rgba(8, 10, 12, 0.75) 0%, rgba(8, 10, 12, 0.2) 75%, transparent 100%);
+  background: linear-gradient(180deg, rgba(8, 10, 12, 0.85) 0%, rgba(8, 10, 12, 0.3) 80%, transparent 100%);
   transition: background var(--transition-smooth), backdrop-filter var(--transition-smooth), box-shadow var(--transition-smooth), height var(--transition-smooth);
 }
 
@@ -396,51 +396,191 @@ body {
   margin-top: auto;
 }
 
-/* CTA Hotspots */
-.hero-cta-hotspots-container {
+/* Hero Dynamic Center Stage Typography & CTA Buttons (Pure HTML Text directly on Desert) */
+.hero-content-stage {
   position: absolute;
-  top: 74.5%;
-  left: 34.5%;
+  top: 17.5%;
+  left: 50%;
   transform: translateX(-50%);
-  width: auto;
-  height: auto;
-  z-index: 25;
+  width: min(840px, 90vw);
+  z-index: 20;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(14px, 2.0vh, 22px);
+  pointer-events: none;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+.hero-pure-headline-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(10px, 1.4vh, 16px);
+  background: none !important;
+}
+
+.hero-pure-title {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0.95;
+  user-select: none;
+}
+
+.hero-line-primary {
+  font-family: var(--font-primary);
+  font-size: clamp(2.2rem, 5.2vw, 4.2rem);
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  color: #14171A;
+  letter-spacing: -0.01em;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.45);
+}
+
+.hero-line-brush {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-brush);
+  font-size: clamp(2.6rem, 6.2vw, 5.0rem);
+  color: #F8B700;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  margin-top: clamp(2px, 0.6vh, 8px);
+}
+
+.hero-brush-underline-svg {
+  position: absolute;
+  bottom: -6px;
+  left: 5%;
+  width: 90%;
+  height: clamp(8px, 1.2vw, 14px);
+  pointer-events: none;
+}
+
+.hero-pure-desc {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-size: clamp(0.92rem, 1.15vw, 1.12rem);
+  font-weight: 600;
+  color: #1E2328;
+  line-height: 1.55;
+  max-width: 680px;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.hero-buttons-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 2.5vw, 2rem);
+  pointer-events: auto;
+}
+
+.btn-hero-primary-book {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: clamp(0.75rem, 1.6vh, 1.05rem) clamp(1.6rem, 2.8vw, 2.6rem);
+  background: var(--color-primary-yellow);
+  color: #0b0c0d;
+  font-family: var(--font-primary);
+  font-size: clamp(0.88rem, 1.1vw, 1.08rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(248, 183, 0, 0.45), 0 0 15px rgba(248, 183, 0, 0.3);
+  transition: all var(--transition-fast);
+}
+
+.btn-hero-primary-book:hover {
+  transform: translateY(-2px) scale(1.02);
+  background: #ffc41e;
+  box-shadow: 0 12px 30px rgba(248, 183, 0, 0.65), 0 0 25px rgba(248, 183, 0, 0.5);
+}
+
+.hero-btn-arrow {
+  width: 18px;
+  height: 18px;
+  transition: transform var(--transition-fast);
+}
+
+.btn-hero-primary-book:hover .hero-btn-arrow {
+  transform: translateX(4px);
+}
+
+.btn-hero-secondary-watch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: clamp(0.75rem, 1.6vh, 1.05rem) clamp(1.6rem, 2.8vw, 2.4rem);
+  background: rgba(14, 16, 20, 0.55);
+  color: #FFFFFF;
+  font-family: var(--font-primary);
+  font-size: clamp(0.88rem, 1.1vw, 1.05rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-hero-secondary-watch:hover {
+  transform: translateY(-2px) scale(1.02);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.play-icon-circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
-.btn-book-ride-hotspot {
-  position: relative;
-  width: clamp(200px, 32.5vw, 545px);
-  height: clamp(48px, 13vh, 122px);
-  border-radius: 9999px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  transition: transform 0.25s ease;
+.play-icon-circle svg {
+  width: 10px;
+  height: 10px;
+  margin-left: 2px;
 }
 
-.btn-book-ride-hotspot:hover {
-  transform: scale(1.025);
-}
-
-.hotspot-glow {
-  position: absolute;
-  inset: 0;
-  border-radius: 9999px;
-  transition: all var(--transition-fast);
-}
-
-.btn-book-ride-hotspot:hover .hotspot-glow {
-  box-shadow: 0 0 20px rgba(248, 183, 0, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.25);
-  transform: scale(1.02);
-}
-
-.btn-watch-tour-hotspot:hover .hotspot-glow {
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.45), inset 0 0 10px rgba(255, 255, 255, 0.2);
-  transform: scale(1.02);
+@media (max-width: 768px) {
+  .hero-content-stage {
+    top: 14%;
+    width: 94vw;
+  }
+  .hero-buttons-row {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+  .btn-hero-primary-book, .btn-hero-secondary-watch {
+    width: 100%;
+    max-width: 320px;
+  }
 }
 
 /* Dashboard Hotspots */

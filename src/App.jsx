@@ -124,16 +124,41 @@ export default function App() {
               />
             </div>
 
-            {/* Interactive Centered Booking Hotspot directly over BOOK YOUR RIDE */}
-            <div className="hero-cta-hotspots-container">
-              <button
-                className="btn-book-ride-hotspot"
-                onClick={() => setIsBookingModalOpen(true)}
-                title="Book Your Ride"
-                aria-label="Book Your Ride"
-              >
-                <span className="hotspot-glow"></span>
-              </button>
+            {/* Hero Dynamic Center Stage Typography & CTA Buttons (Pure HTML/React, No Images/Panels) */}
+            <div className="hero-content-stage">
+              <div className="hero-pure-headline-wrap">
+                <h1 className="hero-pure-title">
+                  <span className="hero-line-primary">YOUR NEXT RIDE</span>
+                  <span className="hero-line-brush">
+                    STARTS HERE
+                    <svg className="hero-brush-underline-svg" viewBox="0 0 340 18" fill="none" preserveAspectRatio="none">
+                      <path
+                        d="M 6 12 Q 90 4 180 10 T 334 8"
+                        stroke="#F8B700"
+                        strokeWidth="5"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </span>
+                </h1>
+                <p className="hero-pure-desc">
+                  Explore the Dubai desert with premium ATVs, buggies and more.<br className="desc-br" />
+                  Adventure. Freedom. Unforgettable Experiences.
+                </p>
+              </div>
+
+              {/* Single Centered High-Impact CTA Button */}
+              <div className="hero-buttons-row">
+                <button
+                  className="btn-hero-primary-book"
+                  onClick={() => setIsBookingModalOpen(true)}
+                >
+                  <span>BOOK YOUR RIDE</span>
+                  <svg className="hero-btn-arrow" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+              </div>
             </div>
 
             {/* Dashboard Hotspot & 4WD Toggle */}
