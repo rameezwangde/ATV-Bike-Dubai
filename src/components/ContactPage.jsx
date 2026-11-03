@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useI18n } from '../context/I18nContext.jsx';
 
 export default function ContactPage({ onOpenBooking }) {
+  const { t } = useI18n();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -42,14 +44,13 @@ export default function ContactPage({ onOpenBooking }) {
         </div>
 
         <div className="contact-hero-content">
-          <span className="contact-hero-eyebrow">GET IN TOUCH</span>
+          <span className="contact-hero-eyebrow">{t('contactHeroTitle')}</span>
           <h1 className="contact-hero-title">
             <span>CONTACT</span>
             <span className="title-yellow">ATV DUBAI GUIDE</span>
           </h1>
           <p className="contact-hero-desc">
-            We are here to help you plan the ultimate off-road adventure.
-            Reach our desert operations team directly via phone, WhatsApp, or visit us in Al Madam.
+            {t('contactHeroDesc')}
           </p>
         </div>
       </section>
@@ -204,20 +205,20 @@ export default function ContactPage({ onOpenBooking }) {
 
             {/* Quick Inquiry Form */}
             <div className="contact-form-container">
-              <h3 className="form-title">Send Us a Quick Message</h3>
-              <p className="form-sub">Our desert marshals respond within 15 minutes.</p>
+              <h3 className="form-title">{t('contactFormTitle')}</h3>
+              <p className="form-sub">{t('contactFormDesc')}</p>
 
               {isSubmitted ? (
                 <div className="form-success-banner">
                   <span className="success-icon">✓</span>
-                  <span>Thank you! Your message has been sent. We will contact you shortly!</span>
+                  <span>{t('messageSentSuccess')}</span>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="quick-inquiry-form">
                   <div className="form-row">
                     <input
                       type="text"
-                      placeholder="Your Full Name *"
+                      placeholder={`${t('fullName')} *`}
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -225,7 +226,7 @@ export default function ContactPage({ onOpenBooking }) {
                     />
                     <input
                       type="tel"
-                      placeholder="Phone / WhatsApp *"
+                      placeholder={`${t('phoneNumber')} *`}
                       required
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -236,7 +237,7 @@ export default function ContactPage({ onOpenBooking }) {
                   <div className="form-row">
                     <input
                       type="email"
-                      placeholder="Email Address"
+                      placeholder={t('emailAddress')}
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       className="form-input"
@@ -256,14 +257,14 @@ export default function ContactPage({ onOpenBooking }) {
 
                   <textarea
                     rows="3"
-                    placeholder="Tell us your preferred date, time, or group size..."
+                    placeholder={t('specialRequests')}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="form-textarea"
                   ></textarea>
 
                   <button type="submit" className="btn-form-submit">
-                    <span>SEND INQUIRY</span>
+                    <span>{t('sendUsMessage')}</span>
                     <svg className="cta-arrow" viewBox="0 0 24 24" fill="none">
                       <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>

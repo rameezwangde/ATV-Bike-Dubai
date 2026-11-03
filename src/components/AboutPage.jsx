@@ -35,15 +35,15 @@ export default function AboutPage({ onOpenBooking }) {
             {/* Top Eyebrow: ABOUT US with thin yellow accent lines on both sides */}
             <div className="about-hero-eyebrow-wrap">
               <span className="about-eyebrow-accent-line" />
-              <span className="about-hero-eyebrow-label">ABOUT US</span>
+              <span className="about-hero-eyebrow-label">{t('aboutHeroEyebrow')}</span>
               <span className="about-eyebrow-accent-line" />
             </div>
 
             {/* Main Heading: Aggressive Motorsport & Desert Adventure Typography */}
             <h1 className="about-hero-main-title">
-              <span className="about-hero-title-white">FUELING DUBAI’S</span>
+              <span className="about-hero-title-white">{t('aboutHeroTitle1')}</span>
               <span className="about-hero-title-brush">
-                DESERT ADVENTURES
+                {t('aboutHeroTitle2')}
                 {/* Yellow Dynamic Brush Underline SVG */}
                 <svg
                   className="about-hero-brush-stroke-svg"
@@ -64,7 +64,7 @@ export default function AboutPage({ onOpenBooking }) {
 
             {/* Body Copy: Warm off-white, storytelling focus, max-width 700-760px */}
             <p className="about-hero-body-copy">
-              We are a passionate team of desert adventure experts, bringing you thrilling and safe ATV, buggy, and quad biking experiences across Dubai’s iconic dunes.
+              {t('aboutHeroDesc')}
             </p>
           </div>
         </div>
@@ -96,13 +96,13 @@ export default function AboutPage({ onOpenBooking }) {
             <div className="journal-story-col">
               <div className="journal-eyebrow-wrap">
                 <span className="journal-eyebrow-dot" />
-                <span className="journal-eyebrow-text">OUR STORY</span>
+                <span className="journal-eyebrow-text">{t('storyEyebrow')}</span>
               </div>
 
               <h2 className="journal-main-heading">
-                Built for the Desert.<br />
+                {t('storyTitle1')}<br />
                 <span className="heading-adventure-brush">
-                  Driven by Adventure.
+                  {t('storyTitle2')}
                   <svg className="journal-brush-mini-svg" viewBox="0 0 320 16" fill="none" preserveAspectRatio="none">
                     <path d="M4 10C75 4 195 3 316 8C230 6 110 8 12 13" stroke="#F8B700" strokeWidth="4" strokeLinecap="round"/>
                   </svg>
@@ -110,7 +110,7 @@ export default function AboutPage({ onOpenBooking }) {
               </h2>
 
               <p className="journal-story-copy">
-                ATV Dubai Guide was created for riders, explorers and thrill-seekers looking for more than a standard desert tour. With expert guidance, carefully selected machines and a strong focus on memorable experiences, we help visitors experience Dubai’s dunes in a way that feels exciting, personal and authentic.
+                {t('storyDesc')}
               </p>
 
               <div className="journal-location-badge">
@@ -143,17 +143,17 @@ export default function AboutPage({ onOpenBooking }) {
             <div className="journal-history-col">
               <div className="history-editorial-card">
                 <div className="history-header-wrap">
-                  <span className="history-eyebrow">OUR HISTORY</span>
-                  <span className="history-year-tag">THE JOURNEY</span>
+                  <span className="history-eyebrow">{t('historyEyebrow')}</span>
+                  <span className="history-year-tag">{t('historyTag')}</span>
                 </div>
 
                 <p className="journal-history-copy">
-                  From helping first-time riders discover the desert to guiding returning adventure seekers, ATV Dubai Guide has grown around one simple idea — make every desert experience easy, exciting and worth remembering.
+                  {t('historyDesc')}
                 </p>
 
                 <div className="history-milestone-marker">
                   <span className="marker-dash" />
-                  <span className="marker-caption">Continuous Desert Passion &amp; Safety</span>
+                  <span className="marker-caption">{t('historyMilestone')}</span>
                 </div>
               </div>
             </div>
@@ -181,10 +181,10 @@ export default function AboutPage({ onOpenBooking }) {
             <div className="mv-panel mv-panel-mission">
               <div className="mv-tag-wrap">
                 <span className="mv-num">01</span>
-                <span className="mv-label">MISSION</span>
+                <span className="mv-label">{t('missionTag')}</span>
               </div>
               <p className="mv-statement">
-                Create memorable, well-guided desert experiences that combine adventure, reliable service and personalized support.
+                {t('missionDesc')}
               </p>
             </div>
 
@@ -203,10 +203,10 @@ export default function AboutPage({ onOpenBooking }) {
             <div className="mv-panel mv-panel-vision">
               <div className="mv-tag-wrap">
                 <span className="mv-num">02</span>
-                <span className="mv-label">VISION</span>
+                <span className="mv-label">{t('visionTag')}</span>
               </div>
               <p className="mv-statement">
-                To become one of Dubai’s most trusted names in off-road adventure experiences, known for quality, safety and unforgettable rides.
+                {t('visionDesc')}
               </p>
             </div>
 
@@ -265,14 +265,14 @@ export default function AboutPage({ onOpenBooking }) {
               {/* Eyebrow */}
               <div className="why-eyebrow-wrap">
                 <span className="why-eyebrow-accent" />
-                <span className="why-eyebrow-text">WHY CHOOSE ATV DUBAI GUIDE</span>
+                <span className="why-eyebrow-text">{t('whyEyebrow')}</span>
               </div>
 
               {/* Main Heading */}
               <h2 className="why-main-heading">
-                Built Around the Ride.<br />
+                {t('whyTitle1')}<br />
                 <span className="heading-experience-brush">
-                  Focused on the Experience.
+                  {t('whyTitle2')}
                   <svg className="why-brush-underline-svg" viewBox="0 0 380 16" fill="none" preserveAspectRatio="none">
                     <path d="M4 11C85 5 220 3 376 9C275 7 130 9 12 14" stroke="#F8B700" strokeWidth="4.5" strokeLinecap="round"/>
                   </svg>
@@ -282,10 +282,10 @@ export default function AboutPage({ onOpenBooking }) {
               {/* Brand Copy */}
               <div className="why-brand-copy">
                 <p>
-                  We’re a team of desert adventure enthusiasts who know what makes a ride memorable — the right machine, the right terrain and the right people guiding the experience.
+                  {t('whyDesc1')}
                 </p>
                 <p>
-                  From first-time riders to experienced thrill-seekers, we focus on making every journey exciting, straightforward and enjoyable from start to finish.
+                  {t('whyDesc2')}
                 </p>
               </div>
 
@@ -300,9 +300,9 @@ export default function AboutPage({ onOpenBooking }) {
                     </svg>
                   </div>
                   <div className="reason-text-group">
-                    <h3 className="reason-title">EXPERT LOCAL GUIDES</h3>
+                    <h3 className="reason-title">{t('reason1Title')}</h3>
                     <p className="reason-desc">
-                      Experienced guides who know the terrain and help riders feel confident throughout the experience.
+                      {t('reason1Desc')}
                     </p>
                   </div>
                 </div>
@@ -319,9 +319,9 @@ export default function AboutPage({ onOpenBooking }) {
                     </svg>
                   </div>
                   <div className="reason-text-group">
-                    <h3 className="reason-title">PREMIUM OFF-ROAD FLEET</h3>
+                    <h3 className="reason-title">{t('reason2Title')}</h3>
                     <p className="reason-desc">
-                      A carefully selected range of ATVs, buggies and quad bikes for different riding styles.
+                      {t('reason2Desc')}
                     </p>
                   </div>
                 </div>
@@ -337,9 +337,9 @@ export default function AboutPage({ onOpenBooking }) {
                     </svg>
                   </div>
                   <div className="reason-text-group">
-                    <h3 className="reason-title">EXPERIENCES FOR EVERY RIDER</h3>
+                    <h3 className="reason-title">{t('reason3Title')}</h3>
                     <p className="reason-desc">
-                      Options suitable for beginners, groups and adrenaline-focused riders.
+                      {t('reason3Desc')}
                     </p>
                   </div>
                 </div>
@@ -353,9 +353,9 @@ export default function AboutPage({ onOpenBooking }) {
                     </svg>
                   </div>
                   <div className="reason-text-group">
-                    <h3 className="reason-title">EASY BOOKING &amp; SUPPORT</h3>
+                    <h3 className="reason-title">{t('reason4Title')}</h3>
                     <p className="reason-desc">
-                      Simple booking, clear information and support before and during your adventure.
+                      {t('reason4Desc')}
                     </p>
                   </div>
                 </div>
@@ -370,11 +370,11 @@ export default function AboutPage({ onOpenBooking }) {
           <div className="why-micro-statement-wrap">
             <div className="micro-statement-line" />
             <p className="why-micro-statement">
-              <span>More than transportation.</span>
+              <span>{t('microStatement1')}</span>
               <span className="statement-dot">•</span>
-              <span>More than a tour.</span>
+              <span>{t('microStatement2')}</span>
               <span className="statement-dot">•</span>
-              <span className="statement-highlight">A real desert experience.</span>
+              <span className="statement-highlight">{t('microStatement3')}</span>
             </p>
             <div className="micro-statement-line" />
           </div>
@@ -384,4 +384,3 @@ export default function AboutPage({ onOpenBooking }) {
     </div>
   );
 }
-

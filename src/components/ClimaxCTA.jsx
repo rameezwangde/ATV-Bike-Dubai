@@ -1,6 +1,9 @@
 import React from 'react';
+import { useI18n } from '../context/I18nContext.jsx';
 
 export default function ClimaxCTA({ onOpenBooking, onExplorePackages }) {
+  const { t } = useI18n();
+
   return (
     <section className="climax-cta-section" id="book-cta">
       {/* Cinematic Dubai Desert Sunset Background with Left Can-Am Buggy & Distant Dune Rider */}
@@ -18,15 +21,15 @@ export default function ClimaxCTA({ onOpenBooking, onExplorePackages }) {
         {/* Top Eyebrow */}
         <div className="climax-eyebrow-wrap">
           <span className="climax-eyebrow-line"></span>
-          <span className="climax-eyebrow-text">YOUR NEXT ADVENTURE AWAITS</span>
+          <span className="climax-eyebrow-text">{t('climaxEyebrow')}</span>
           <span className="climax-eyebrow-line"></span>
         </div>
 
         {/* Main Headline */}
         <h2 className="climax-headline">
-          <span className="climax-headline-white">READY TO RIDE</span>
+          <span className="climax-headline-white">{t('climaxTitle1')} </span>
           <span className="climax-headline-brush">
-            THE DUNES?
+            {t('climaxTitle2')}
             <svg className="climax-brush-underline" viewBox="0 0 320 20" fill="none">
               <path
                 d="M5 14C85 6 230 4 315 11C230 9 105 11 15 18"
@@ -46,7 +49,7 @@ export default function ClimaxCTA({ onOpenBooking, onExplorePackages }) {
 
         {/* Subtext */}
         <p className="climax-subtext">
-          Book your ATV, buggy, or desert experience today and turn Dubai’s dunes into your next unforgettable memory.
+          {t('climaxSubtitle')}
         </p>
 
         {/* CTA Button Row */}
@@ -56,7 +59,7 @@ export default function ClimaxCTA({ onOpenBooking, onExplorePackages }) {
             className="btn-climax-primary"
             onClick={onOpenBooking}
           >
-            <span>BOOK YOUR RIDE</span>
+            <span>{t('climaxPrimary')}</span>
             <svg className="btn-arrow" viewBox="0 0 24 24" fill="none">
               <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
@@ -67,7 +70,7 @@ export default function ClimaxCTA({ onOpenBooking, onExplorePackages }) {
             className="btn-climax-secondary"
             onClick={onExplorePackages}
           >
-            <span>EXPLORE ALL PACKAGES</span>
+            <span>{t('climaxSecondary')}</span>
             <svg className="btn-arrow" viewBox="0 0 24 24" fill="none">
               <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
@@ -76,15 +79,14 @@ export default function ClimaxCTA({ onOpenBooking, onExplorePackages }) {
 
         {/* Bottom Micro Highlights */}
         <div className="climax-micro-highlights">
-          <span className="highlight-item">Daily tours</span>
+          <span className="highlight-item">{t('climaxHighlight1')}</span>
           <span className="highlight-dot">•</span>
-          <span className="highlight-item">Premium fleet</span>
+          <span className="highlight-item">{t('climaxHighlight2')}</span>
           <span className="highlight-dot">•</span>
-          <span className="highlight-item">Expert guides</span>
+          <span className="highlight-item">{t('climaxHighlight3')}</span>
         </div>
 
       </div>
     </section>
   );
 }
-

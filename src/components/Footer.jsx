@@ -1,6 +1,8 @@
 import React from 'react';
+import { useI18n } from '../context/I18nContext.jsx';
 
 export default function Footer({ onOpenBooking, onOpenPackages, onOpenPolicy, onNavigate }) {
+  const { t } = useI18n();
   const whatsappUrl = "https://wa.me/971504799258?text=Hello%2C%20I%20would%20like%20to%20book%20an%20ATV%20Dubai%20desert%20experience!";
 
   return (
@@ -27,7 +29,7 @@ export default function Footer({ onOpenBooking, onOpenPackages, onOpenPolicy, on
             </a>
 
             <p className="footer-tagline">
-              Premium off-road desert experiences across Dubai and the UAE.
+              {t('brandTagline')}
             </p>
 
             <a
@@ -36,7 +38,7 @@ export default function Footer({ onOpenBooking, onOpenPackages, onOpenPolicy, on
               rel="noopener noreferrer"
               className="btn-footer-whatsapp"
             >
-              <span>WHATSAPP US</span>
+              <span>{t('whatsappUs')}</span>
               <svg className="whatsapp-arrow" viewBox="0 0 24 24" fill="none">
                 <path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
@@ -45,7 +47,7 @@ export default function Footer({ onOpenBooking, onOpenPackages, onOpenPolicy, on
 
           {/* Column 2: Quick Links */}
           <div className="footer-col">
-            <h4 className="footer-heading">QUICK LINKS</h4>
+            <h4 className="footer-heading">{t('quickLinks')}</h4>
             <ul className="footer-links-list">
               <li>
                 <a
@@ -57,7 +59,7 @@ export default function Footer({ onOpenBooking, onOpenPackages, onOpenPolicy, on
                     }
                   }}
                 >
-                  Home
+                  {t('home')}
                 </a>
               </li>
               <li>
@@ -70,7 +72,7 @@ export default function Footer({ onOpenBooking, onOpenPackages, onOpenPolicy, on
                     }
                   }}
                 >
-                  About Us
+                  {t('aboutUs')}
                 </a>
               </li>
               <li>
@@ -83,7 +85,7 @@ export default function Footer({ onOpenBooking, onOpenPackages, onOpenPolicy, on
                     }
                   }}
                 >
-                  Choose Machine
+                  {t('fleetEyebrow')}
                 </a>
               </li>
               <li>
@@ -96,11 +98,9 @@ export default function Footer({ onOpenBooking, onOpenPackages, onOpenPolicy, on
                     }
                   }}
                 >
-                  Packages
+                  {t('packages')}
                 </a>
               </li>
-              <li><a href="#packages" onClick={(e) => { e.preventDefault(); onOpenPackages(); }}>Gallery Fleet</a></li>
-              <li><a href="#contact" onClick={(e) => { e.preventDefault(); onOpenBooking(); }}>Testimonials</a></li>
               <li>
                 <a
                   href="#contact"
@@ -111,27 +111,26 @@ export default function Footer({ onOpenBooking, onOpenPackages, onOpenPolicy, on
                     }
                   }}
                 >
-                  Contact
+                  {t('contact')}
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: Experiences */}
+          {/* Column 3: Legal & Safety */}
           <div className="footer-col">
-            <h4 className="footer-heading">EXPERIENCES</h4>
+            <h4 className="footer-heading">{t('legalSafety')}</h4>
             <ul className="footer-links-list">
-              <li><a href="#fleet" onClick={onOpenPackages}>Dune Buggy Tours</a></li>
-              <li><a href="#packages" onClick={onOpenPackages}>Hourly Packages</a></li>
-              <li><a href="#packages" onClick={onOpenBooking}>Private Experiences</a></li>
-              <li><a href="#packages" onClick={onOpenBooking}>Desert Combo Tours</a></li>
-              <li><a href="#packages" onClick={onOpenBooking}>Sunset Dune VIP</a></li>
+              <li><a href="#terms" onClick={(e) => { e.preventDefault(); onOpenPolicy('terms'); }}>{t('termsConditions')}</a></li>
+              <li><a href="#privacy" onClick={(e) => { e.preventDefault(); onOpenPolicy('privacy'); }}>{t('privacyPolicy')}</a></li>
+              <li><a href="#safety" onClick={(e) => { e.preventDefault(); onOpenPolicy('safety'); }}>{t('safetyPolicy')}</a></li>
+              <li><a href="#refund" onClick={(e) => { e.preventDefault(); onOpenPolicy('refund'); }}>{t('refundPolicy')}</a></li>
             </ul>
           </div>
 
           {/* Column 4: Contact & Socials */}
           <div className="footer-col footer-col-contact">
-            <h4 className="footer-heading">CONTACT</h4>
+            <h4 className="footer-heading">{t('contact')}</h4>
             <div className="contact-details-block">
               <a href="tel:+971504799258" className="contact-item contact-phone">
                 +971 50 479 9258
@@ -145,7 +144,7 @@ export default function Footer({ onOpenBooking, onOpenPackages, onOpenPolicy, on
             </div>
 
             <div className="footer-socials-block">
-              <h5 className="socials-subheading">FOLLOW THE ADVENTURE</h5>
+              <h5 className="socials-subheading">{t('followUs')}</h5>
               <div className="socials-links-row">
                 <a
                   href="https://instagram.com"
@@ -174,12 +173,12 @@ export default function Footer({ onOpenBooking, onOpenPackages, onOpenPolicy, on
         <div className="footer-bottom-bar">
           <div className="footer-bottom-left">
             <span className="coordinates-tag">25.2048° N / 55.2708° E — DUBAI, UAE</span>
-            <span className="copyright-text">© 2026 ATV Dubai Guide. All rights reserved.</span>
+            <span className="copyright-text">© 2026 ATV Dubai Guide. {t('allRightsReserved')}</span>
           </div>
 
           <div className="footer-bottom-right">
-            <a href="#terms" onClick={(e) => { e.preventDefault(); onOpenPolicy('terms'); }}>Terms & Conditions</a>
-            <a href="#privacy" onClick={(e) => { e.preventDefault(); onOpenPolicy('privacy'); }}>Privacy Policy</a>
+            <a href="#terms" onClick={(e) => { e.preventDefault(); onOpenPolicy('terms'); }}>{t('termsConditions')}</a>
+            <a href="#privacy" onClick={(e) => { e.preventDefault(); onOpenPolicy('privacy'); }}>{t('privacyPolicy')}</a>
           </div>
         </div>
 
@@ -200,4 +199,3 @@ export default function Footer({ onOpenBooking, onOpenPackages, onOpenPolicy, on
     </footer>
   );
 }
-

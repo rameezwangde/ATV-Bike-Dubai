@@ -1,4 +1,5 @@
 import React from 'react';
+import { useI18n } from '../context/I18nContext.jsx';
 
 const FEATURED_PACKAGES = [
   {
@@ -144,6 +145,7 @@ const FEATURED_PACKAGES = [
 ];
 
 export default function PopularPackages({ onOpenBooking, onExploreAll }) {
+  const { t, formatPrice } = useI18n();
   return (
     <section className="packages-section" id="packages">
       {/* Background: Golden Hour Dubai Desert Sunset with Tire Tracks */}
@@ -163,24 +165,18 @@ export default function PopularPackages({ onOpenBooking, onExploreAll }) {
           {/* Eyebrow */}
           <div className="packages-eyebrow-wrap">
             <span className="packages-eyebrow-line"></span>
-            <span className="packages-eyebrow-text">OUR PACKAGES</span>
+            <span className="packages-eyebrow-text">{t('popPackagesEyebrow')}</span>
             <span className="packages-eyebrow-line"></span>
           </div>
 
           {/* Main Heading */}
           <h2 className="packages-heading">
-            <span className="packages-heading-white">Popular Desert </span>
-            <span className="packages-heading-yellow">
-              Packages
-              <svg className="brush-underline-svg" viewBox="0 0 240 16" fill="none">
-                <path d="M4 11C60 5 170 3 236 9C170 7 75 9 12 14" stroke="#F8B700" strokeWidth="4.5" strokeLinecap="round"/>
-              </svg>
-            </span>
+            <span className="packages-heading-white">{t('popPackagesTitle')}</span>
           </h2>
 
           {/* Subheading */}
           <p className="packages-subheading">
-            Handpicked adventure packages for every kind of rider — from solo thrills to group adventures.
+            {t('popPackagesSubtitle')}
           </p>
         </div>
 
@@ -223,8 +219,8 @@ export default function PopularPackages({ onOpenBooking, onExploreAll }) {
 
                 {/* Price Display */}
                 <div className="package-price-wrap">
-                  <span className="price-prefix">{pkg.pricePrefix}</span>
-                  <span className="price-val">{pkg.price}</span>
+                  <span className="price-prefix">{t('startingFrom')}</span>
+                  <span className="price-val">{formatPrice(pkg.price)}</span>
                 </div>
 
                 {/* Book Now Button */}
@@ -232,7 +228,7 @@ export default function PopularPackages({ onOpenBooking, onExploreAll }) {
                   className="btn-book-package"
                   onClick={onOpenBooking}
                 >
-                  <span>BOOK NOW</span>
+                  <span>{t('bookNow')}</span>
                   <svg className="cta-arrow" viewBox="0 0 24 24" fill="none">
                     <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
@@ -250,7 +246,7 @@ export default function PopularPackages({ onOpenBooking, onExploreAll }) {
             className="btn-explore-all"
             onClick={onExploreAll}
           >
-            <span>EXPLORE ALL PACKAGES</span>
+            <span>{t('exploreAllPackages')}</span>
             <svg className="cta-arrow-yellow" viewBox="0 0 24 24" fill="none">
               <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>

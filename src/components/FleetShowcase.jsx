@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useI18n } from '../context/I18nContext.jsx';
 
 const CATEGORIES = [
   { id: 'can-am', label: 'CAN-AM' },
@@ -167,6 +168,7 @@ const VEHICLES = [
 ];
 
 export default function FleetShowcase({ onOpenBooking, onOpenVideo }) {
+  const { t } = useI18n();
   const [activeCategory, setActiveCategory] = useState(0);
 
   const prevSlide = () => {
@@ -197,15 +199,15 @@ export default function FleetShowcase({ onOpenBooking, onOpenVideo }) {
           {/* Eyebrow */}
           <div className="machine-eyebrow-wrap">
             <span className="machine-eyebrow-line"></span>
-            <span className="machine-eyebrow-text">CHOOSE YOUR MACHINE</span>
+            <span className="machine-eyebrow-text">{t('fleetEyebrow')}</span>
             <span className="machine-eyebrow-line"></span>
           </div>
 
           {/* Heading */}
           <h2 className="machine-main-heading">
-            <span className="heading-white">Pick Your Weapon for </span>
+            <span className="heading-white">{t('fleetTitle1')} </span>
             <span className="heading-yellow">
-              the Dunes.
+              {t('fleetTitle2')}
               <svg className="brush-underline-svg" viewBox="0 0 260 16" fill="none">
                 <path d="M4 11C65 5 185 3 256 9C180 7 85 9 12 14" stroke="#F8B700" strokeWidth="4.5" strokeLinecap="round"/>
               </svg>
@@ -214,7 +216,7 @@ export default function FleetShowcase({ onOpenBooking, onOpenVideo }) {
 
           {/* Subheading */}
           <p className="machine-subheading">
-            A premium fleet of high-performance ATVs and buggies, built for Dubai’s desert terrain.
+            {t('fleetSubtitle')}
           </p>
         </div>
 
@@ -280,7 +282,7 @@ export default function FleetShowcase({ onOpenBooking, onOpenVideo }) {
                 className="btn-book-machine"
                 onClick={onOpenBooking}
               >
-                <span>BOOK THIS RIDE</span>
+                <span>{t('bookYourRide')}</span>
                 <svg className="cta-arrow" viewBox="0 0 24 24" fill="none">
                   <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
@@ -295,7 +297,7 @@ export default function FleetShowcase({ onOpenBooking, onOpenVideo }) {
                     <path d="M8 5V19L19 12L8 5Z" fill="currentColor"/>
                   </svg>
                 </span>
-                <span>WATCH IN ACTION</span>
+                <span>{t('watchInAction')}</span>
               </button>
             </div>
           </div>

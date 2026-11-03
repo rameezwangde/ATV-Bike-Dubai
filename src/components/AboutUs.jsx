@@ -1,6 +1,9 @@
 import React from 'react';
+import { useI18n } from '../context/I18nContext.jsx';
 
 export default function AboutUs({ onOpenBooking, onDiscoverStory }) {
+  const { t } = useI18n();
+
   return (
     <section className="about-section" id="about">
       {/* Background with seamless desert transition */}
@@ -25,17 +28,17 @@ export default function AboutUs({ onOpenBooking, onDiscoverStory }) {
           {/* Eyebrow */}
           <div className="about-eyebrow-wrap">
             <span className="about-eyebrow-line"></span>
-            <span className="about-eyebrow-text">ABOUT ATV DUBAI GUIDE</span>
+            <span className="about-eyebrow-text">{t('aboutEyebrow')}</span>
             <span className="about-eyebrow-line"></span>
           </div>
 
           {/* Main Heading */}
           <h2 className="about-heading">
-            <span className="heading-line-1">More Than a Ride.</span>
+            <span className="heading-line-1">{t('aboutHeading1')}</span>
             <span className="heading-line-2">
-              <span className="heading-sub">It’s a </span>
+              <span className="heading-sub">{t('aboutHeading2')} </span>
               <span className="heading-highlight">
-                Desert Experience.
+                {t('aboutHeading3')}
                 {/* Yellow dynamic brush underline */}
                 <svg className="brush-underline-svg" viewBox="0 0 280 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M4 11C65 5 185 3 276 9C195 7 90 9 12 14" stroke="#F8B700" strokeWidth="4.5" strokeLinecap="round"/>
@@ -46,10 +49,7 @@ export default function AboutUs({ onOpenBooking, onDiscoverStory }) {
 
           {/* Body Copy */}
           <p className="about-description">
-            ATV Dubai Guide connects adventure seekers with unforgettable off-road
-            experiences across Dubai’s iconic desert. From premium ATVs and buggies to
-            expert local guidance and a strong focus on safety, we deliver more than just
-            a ride — we create authentic desert experiences and lasting memories.
+            {t('aboutDesc')}
           </p>
 
           {/* Stats Row */}
@@ -67,7 +67,7 @@ export default function AboutUs({ onOpenBooking, onDiscoverStory }) {
               </div>
               <div className="stat-text-group">
                 <span className="stat-num">10K+</span>
-                <span className="stat-label">Riders &amp; Guests</span>
+                <span className="stat-label">{t('statRiders')}</span>
               </div>
             </div>
 
@@ -86,7 +86,7 @@ export default function AboutUs({ onOpenBooking, onDiscoverStory }) {
               </div>
               <div className="stat-text-group">
                 <span className="stat-num">15+</span>
-                <span className="stat-label">Premium Rides</span>
+                <span className="stat-label">{t('statRides')}</span>
               </div>
             </div>
 
@@ -103,7 +103,7 @@ export default function AboutUs({ onOpenBooking, onDiscoverStory }) {
               </div>
               <div className="stat-text-group">
                 <span className="stat-num">Daily</span>
-                <span className="stat-label">Desert Experiences</span>
+                <span className="stat-label">{t('statDaily')}</span>
               </div>
             </div>
 
@@ -115,7 +115,7 @@ export default function AboutUs({ onOpenBooking, onDiscoverStory }) {
               className="btn-discover-story"
               onClick={onDiscoverStory || onOpenBooking}
             >
-              <span>DISCOVER OUR STORY</span>
+              <span>{t('discoverStory')}</span>
               <svg className="action-arrow-icon" viewBox="0 0 24 24" fill="none">
                 <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
@@ -152,4 +152,3 @@ export default function AboutUs({ onOpenBooking, onDiscoverStory }) {
     </section>
   );
 }
-
