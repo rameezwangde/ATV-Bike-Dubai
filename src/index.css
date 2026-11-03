@@ -485,21 +485,34 @@ body {
   border-radius: 3px;
 }
 
+.mobile-nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1999;
+}
+
 .mobile-nav-drawer {
   position: fixed;
   top: 0;
   right: -100%;
   width: 82%;
-  max-width: 340px;
+  max-width: 320px;
   height: 100vh;
+  height: 100dvh;
   background: rgba(10, 12, 14, 0.98);
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-left: 1px solid rgba(248, 183, 0, 0.3);
-  z-index: 200;
-  padding: 2rem 1.6rem;
+  z-index: 2000;
+  padding: 1.5rem 1.4rem;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  transition: right var(--transition-smooth);
+  transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: -10px 0 35px rgba(0, 0, 0, 0.85);
 }
 
 .mobile-nav-drawer.open {
@@ -510,7 +523,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 1.2rem;
+  padding-bottom: 1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -522,11 +535,22 @@ body {
 }
 
 .drawer-close {
-  background: none;
-  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
   color: #FFFFFF;
-  font-size: 1.8rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.drawer-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--color-primary-yellow);
 }
 
 .mobile-menu-list {
@@ -727,8 +751,8 @@ body {
 
 @media (max-width: 768px) {
   .hero-content-stage {
-    top: 14%;
-    width: 94vw;
+    top: 25%;
+    width: 92vw;
   }
 
   .hero-buttons-row {
@@ -2458,34 +2482,145 @@ body {
   .machine-showcase {
     max-height: none;
     min-height: auto;
-    padding: 3.5rem 1.5rem;
+    padding: 2.8rem 1.2rem 3rem;
+  }
+
+  .machine-bg-img {
+    object-position: 18% center;
+  }
+
+  .section-heading {
+    margin-bottom: 1.2rem;
+  }
+
+  .machine-main-heading {
+    font-size: clamp(2rem, 7vw, 2.75rem);
+    line-height: 1.1;
+  }
+
+  .machine-subheading {
+    font-size: 0.85rem;
+    line-height: 1.45;
   }
 
   .machine-tabs {
     width: 100%;
     overflow-x: auto;
     justify-content: flex-start;
-    border-radius: 12px;
-    padding: 0.35rem 0.5rem;
+    border-radius: 9999px;
+    padding: 0.35rem 0.6rem;
+    height: auto;
+    min-height: 52px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-bottom: 1.5rem;
+  }
+
+  .machine-tabs::-webkit-scrollbar {
+    display: none;
   }
 
   .machine-tab-btn {
-    padding: 0.5rem 1.1rem;
+    padding: 0.55rem 1.15rem;
+    height: 40px;
+    font-size: 0.78rem;
     white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .machine-content {
     grid-template-columns: 1fr;
-    gap: 1.8rem;
+    gap: 1.2rem;
+    min-height: auto;
+    width: 100%;
   }
 
   .machine-visual {
-    height: 280px;
-    min-height: 240px;
+    height: 220px;
+    min-height: 190px;
+    width: 100%;
+  }
+
+  .machine-info {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    background: rgba(14, 16, 18, 0.72);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 1.5rem 1.2rem;
+    box-sizing: border-box;
+  }
+
+  .machine-title-wrap {
+    align-items: center;
+    text-align: center;
+    margin-bottom: 0.6rem;
+  }
+
+  .machine-brand-text {
+    font-size: 1.6rem;
+  }
+
+  .machine-model-text {
+    font-size: 1.95rem;
+  }
+
+  .machine-description {
+    font-size: 0.86rem;
+    text-align: center;
+    max-width: 100%;
+    margin-bottom: 1.2rem;
+  }
+
+  .machine-specs-row {
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .machine-spec-col {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.35rem;
+  }
+
+  .machine-spec-col .spec-primary-val {
+    font-size: 1.05rem;
+  }
+
+  .machine-spec-col .spec-secondary-lbl {
+    font-size: 0.68rem;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.15;
+  }
+
+  .machine-cta-row {
+    width: 100%;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .btn-book-machine,
+  .btn-watch-machine {
+    width: 100%;
+    height: 50px;
+    font-size: 0.84rem;
+    justify-content: center;
   }
 
   .machine-carousel-arrow {
     display: none;
+  }
+
+  .machine-pagination-dots {
+    margin-top: 1.5rem;
   }
 
   /* Packages Tablet */
@@ -4425,8 +4560,8 @@ body {
   }
 
   .hero-content-stage {
-    top: 13%;
-    width: 94vw;
+    top: 25%;
+    width: 92vw;
   }
 
   .hero-line-primary {

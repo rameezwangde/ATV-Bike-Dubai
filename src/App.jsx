@@ -88,7 +88,7 @@ export default function App() {
         isMobileMenuOpen={isMobileMenuOpen}
         setIsMobileMenuOpen={setIsMobileMenuOpen}
         activePage={currentPage}
-        setActivePage={(page) => {
+        setActivePage={(page, hash) => {
           setCurrentPage(page);
           if (page === 'contact') {
             window.location.hash = '#contact';
@@ -97,8 +97,16 @@ export default function App() {
             window.location.hash = '#packages';
             window.scrollTo({ top: 0, behavior: 'smooth' });
           } else {
-            window.location.hash = '#hero';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (hash === '#about') {
+              window.location.hash = '#about';
+              setTimeout(() => {
+                const el = document.getElementById('about');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }, 50);
+            } else {
+              window.location.hash = '#hero';
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
           }
         }}
       />

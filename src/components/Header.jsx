@@ -46,10 +46,20 @@ function Header({
 
   const handleNavClick = (pageId, hash) => {
     if (setActivePage) {
-      setActivePage(pageId);
+      setActivePage(pageId, hash);
     }
     if (hash) {
       window.location.hash = hash;
+    }
+    if (pageId === 'home') {
+      if (hash === '#about') {
+        setTimeout(() => {
+          const el = document.getElementById('about');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 50);
+      } else if (hash === '#hero') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     }
   };
 
@@ -247,6 +257,14 @@ function Header({
         </div>
       </header>
 
+      {/* Responsive Mobile Drawer Backdrop */}
+      {isMobileMenuOpen && (
+        <div
+          className="mobile-nav-backdrop"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
       {/* Responsive Mobile Drawer */}
       <div className={`mobile-nav-drawer ${isMobileMenuOpen ? 'open' : ''}`}>
         <div className="mobile-nav-header">
@@ -256,7 +274,10 @@ function Header({
             onClick={() => setIsMobileMenuOpen(false)}
             aria-label="Close menu"
           >
-            &times;
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: '22px', height: '22px' }}>
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
           </button>
         </div>
         <nav className="mobile-menu-list">
