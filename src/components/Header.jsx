@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useI18n, LANGUAGES } from '../context/I18nContext.jsx';
 
-export default function Header({
+function Header({
   onOpenBooking,
   isMobileMenuOpen,
   setIsMobileMenuOpen,
@@ -269,29 +269,18 @@ export default function Header({
               handleNavClick('home', '#hero');
             }}
           >
-            HOME
+            {t('home')}
           </a>
           <a
             href="#about"
-            className="mobile-link"
+            className={`mobile-link ${activePage === 'about' ? 'active' : ''}`}
             onClick={(e) => {
               e.preventDefault();
               setIsMobileMenuOpen(false);
               handleNavClick('home', '#about');
             }}
           >
-            ABOUT US
-          </a>
-          <a
-            href="#fleet"
-            className="mobile-link"
-            onClick={(e) => {
-              e.preventDefault();
-              setIsMobileMenuOpen(false);
-              handleNavClick('home', '#fleet');
-            }}
-          >
-            CHOOSE MACHINE
+            {t('aboutUs')}
           </a>
           <a
             href="#packages"
@@ -302,7 +291,7 @@ export default function Header({
               handleNavClick('packages', '#packages');
             }}
           >
-            PACKAGES
+            {t('packages')}
           </a>
           <a
             href="#contact"
@@ -313,7 +302,7 @@ export default function Header({
               handleNavClick('contact', '#contact');
             }}
           >
-            CONTACT
+            {t('contact')}
           </a>
         </nav>
         <div className="mobile-cta-box">
@@ -324,10 +313,13 @@ export default function Header({
               onOpenBooking();
             }}
           >
-            <span>BOOK YOUR RIDE</span>
+            <span>{t('bookYourRide')}</span>
           </button>
         </div>
       </div>
     </>
   );
 }
+
+export default Header;
+
