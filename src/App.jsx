@@ -11,8 +11,10 @@ import PackagesPage from './components/PackagesPage.jsx';
 import PolicyModal from './components/PolicyModal.jsx';
 import PackagesModal from './components/PackagesModal.jsx';
 import { VideoModal, BookingModal } from './components/Modals.jsx';
+import { useI18n } from './context/I18nContext.jsx';
 
 export default function App() {
+  const { t } = useI18n();
   const [currentPage, setCurrentPage] = useState('home');
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
@@ -128,9 +130,9 @@ export default function App() {
             <div className="hero-content-stage">
               <div className="hero-pure-headline-wrap">
                 <h1 className="hero-pure-title">
-                  <span className="hero-line-primary">YOUR NEXT RIDE</span>
+                  <span className="hero-line-primary">{t('heroLine1')}</span>
                   <span className="hero-line-brush">
-                    STARTS HERE
+                    {t('heroLine2')}
                     <svg className="hero-brush-underline-svg" viewBox="0 0 340 18" fill="none" preserveAspectRatio="none">
                       <path
                         d="M 6 12 Q 90 4 180 10 T 334 8"
@@ -142,8 +144,7 @@ export default function App() {
                   </span>
                 </h1>
                 <p className="hero-pure-desc">
-                  Explore the Dubai desert with premium ATVs, buggies and more.<br className="desc-br" />
-                  Adventure. Freedom. Unforgettable Experiences.
+                  {t('heroDesc')}
                 </p>
               </div>
 
@@ -153,7 +154,7 @@ export default function App() {
                   className="btn-hero-primary-book"
                   onClick={() => setIsBookingModalOpen(true)}
                 >
-                  <span>BOOK YOUR RIDE</span>
+                  <span>{t('bookYourRide')}</span>
                   <svg className="hero-btn-arrow" viewBox="0 0 24 24" fill="none">
                     <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>

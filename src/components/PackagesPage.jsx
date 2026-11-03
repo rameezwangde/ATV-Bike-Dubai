@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useI18n } from '../context/I18nContext.jsx';
 
 const ALL_PACKAGES = {
   'can-am': [
@@ -354,6 +355,7 @@ const ALL_PACKAGES = {
 const CAN_AM_PACKAGES = ALL_PACKAGES['can-am'];
 
 export default function PackagesPage({ onOpenBooking, selectedCategory = 'all' }) {
+  const { formatPrice, t } = useI18n();
   const [filter, setFilter] = useState('can-am');
   const [selectedDuration, setSelectedDuration] = useState({
     'can-am-2-seater': 0,
@@ -450,7 +452,7 @@ export default function PackagesPage({ onOpenBooking, selectedCategory = 'all' }
 
                     {/* Top Left Price Badge */}
                     <div className="card-top-price-badge">
-                      <span>{activeOption.price}</span>
+                      <span>{formatPrice(activeOption.price)}</span>
                     </div>
 
                     {/* Top Right Category Pill */}
@@ -520,7 +522,7 @@ export default function PackagesPage({ onOpenBooking, selectedCategory = 'all' }
 
                     {/* Ride Duration Selector Buttons */}
                     <div className="duration-selector-row">
-                      <span className="selector-label">SELECT DURATION:</span>
+                      <span className="selector-label">{t('selectDuration')}</span>
                       <div className="selector-pills">
                         {pkg.pricingOptions.map((opt, optIdx) => (
                           <button
@@ -528,7 +530,7 @@ export default function PackagesPage({ onOpenBooking, selectedCategory = 'all' }
                             className={`duration-pill-btn ${(selectedDuration[pkg.id] || 0) === optIdx ? 'active' : ''}`}
                             onClick={() => setSelectedDuration({ ...selectedDuration, [pkg.id]: optIdx })}
                           >
-                            {opt.label}
+                            {opt.label} • {formatPrice(opt.price)}
                           </button>
                         ))}
                       </div>
@@ -539,7 +541,7 @@ export default function PackagesPage({ onOpenBooking, selectedCategory = 'all' }
                       className="btn-innovative-book"
                       onClick={() => onOpenBooking(pkg)}
                     >
-                      <span>BOOK NOW</span>
+                      <span>{t('bookNow')}</span>
                       <svg className="cta-arrow" viewBox="0 0 24 24" fill="none">
                         <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>

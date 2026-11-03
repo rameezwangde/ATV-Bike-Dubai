@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useI18n, LANGUAGES } from '../context/I18nContext.jsx';
 
 export default function Header({
   onOpenBooking,
@@ -8,6 +9,13 @@ export default function Header({
   setActivePage
 }) {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const [isCurrOpen, setIsCurrOpen] = useState(false);
+
+  const { lang, setLang, currency, setCurrency, exchangeRates, t, currentLanguage, currentCurrency } = useI18n();
+
+  const langRef = useRef(null);
+  const currRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +28,20 @@ export default function Header({
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Close dropdowns on outside click
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (langRef.current && !langRef.current.contains(e.target)) {
+        setIsLangOpen(false);
+      }
+      if (currRef.current && !currRef.current.contains(e.target)) {
+        setIsCurrOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
   const handleNavClick = (pageId, hash) => {
@@ -69,7 +91,7 @@ export default function Header({
                 handleNavClick('home', '#hero');
               }}
             >
-              <span>HOME</span>
+              <span>{t('home')}</span>
               <span className="nav-active-bar"></span>
             </a>
             <a
@@ -80,7 +102,7 @@ export default function Header({
                 handleNavClick('home', '#about');
               }}
             >
-              <span>ABOUT US</span>
+              <span>{t('aboutUs')}</span>
               <span className="nav-active-bar"></span>
             </a>
             <a
@@ -91,7 +113,7 @@ export default function Header({
                 handleNavClick('packages', '#packages');
               }}
             >
-              <span>PACKAGES</span>
+              <span>{t('packages')}</span>
               <span className="nav-active-bar"></span>
             </a>
             <a
@@ -102,24 +124,110 @@ export default function Header({
                 handleNavClick('contact', '#contact');
               }}
             >
-              <span>CONTACT</span>
+              <span>{t('contact')}</span>
               <span className="nav-active-bar"></span>
             </a>
           </nav>
 
-          {/* Right Action / Currency & Angled CTA Button matching reference */}
+          {/* Right Action / Currency & Language Selectors & CTA */}
           <div className="header-right-action">
-            <div className="currency-selector-badge">
-              <span className="currency-country">AE</span>
-              <span className="currency-label">AED</span>
-              <span className="currency-pill">AED</span>
+            
+            {/* 1. CURRENCY SELECTOR (AE AED dropdown) */}
+            <div className="custom-dropdown-container" ref={currRef}>
+              <button
+                className={`currency-selector-badge ${isCurrOpen ? 'active' : ''}`}
+                onClick={() => {
+                  setIsCurrOpen(!isCurrOpen);
+                  setIsLangOpen(false);
+                }}
+                aria-label="Select Currency"
+                type="button"
+              >
+                <span className="currency-country">{currentCurrency.flag}</span>
+                <span className="currency-label">{currentCurrency.code}</span>
+                <span className="currency-pill">{currentCurrency.symbol}</span>
+                <svg className="dropdown-caret" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+
+              {/* Currency Dropdown Menu matching user image */}
+              {isCurrOpen && (
+                <div className="dropdown-panel-menu currency-panel">
+                  <div className="dropdown-panel-header">
+                    <span>SELECT CURRENCY</span>
+                  </div>
+                  <div className="dropdown-items-list">
+                    {Object.values(exchangeRates).map((item) => (
+                      <button
+                        key={item.code}
+                        className={`dropdown-item-row ${currency === item.code ? 'selected' : ''}`}
+                        onClick={() => {
+                          setCurrency(item.code);
+                          setIsCurrOpen(false);
+                        }}
+                        type="button"
+                      >
+                        <span className="row-flag-code">{item.flag}</span>
+                        <span className="row-item-name">{item.name}</span>
+                        <span className="row-rate-tag">{item.label}</span>
+                        {currency === item.code && <span className="active-dot"></span>}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
+            {/* 2. LANGUAGE SELECTOR (GB EN dropdown) */}
+            <div className="custom-dropdown-container" ref={langRef}>
+              <button
+                className={`language-selector-badge ${isLangOpen ? 'active' : ''}`}
+                onClick={() => {
+                  setIsLangOpen(!isLangOpen);
+                  setIsCurrOpen(false);
+                }}
+                aria-label="Select Language"
+                type="button"
+              >
+                <span className="currency-country">{currentLanguage.flag}</span>
+                <span className="currency-label">{currentLanguage.short}</span>
+                <svg className="dropdown-caret" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </button>
+
+              {/* Language Dropdown Menu matching user image */}
+              {isLangOpen && (
+                <div className="dropdown-panel-menu language-panel">
+                  <div className="dropdown-items-list">
+                    {LANGUAGES.map((item) => (
+                      <button
+                        key={item.code}
+                        className={`dropdown-item-row ${lang === item.code ? 'selected' : ''}`}
+                        onClick={() => {
+                          setLang(item.code);
+                          setIsLangOpen(false);
+                        }}
+                        type="button"
+                      >
+                        <span className="row-flag-code">{item.flag}</span>
+                        <span className="row-item-name">{item.name}</span>
+                        <span className="row-short-tag">{item.short}</span>
+                        {lang === item.code && <span className="active-dot"></span>}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* 3. BOOK YOUR RIDE Button */}
             <button
               className="btn-header-angled-book"
               onClick={onOpenBooking}
             >
-              <span>BOOK YOUR RIDE</span>
+              <span>{t('bookYourRide')}</span>
               <svg className="angled-btn-arrow" viewBox="0 0 24 24" fill="none">
                 <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
