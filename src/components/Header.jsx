@@ -59,27 +59,26 @@ function Header({
       <header className={`site-header ${isScrolled ? 'scrolled' : ''}`}>
         <div className="header-inner">
           
-          {/* Logo on Left */}
+          {/* Logo Placeholder on Left */}
           <a
             href="#hero"
-            className="site-brand-logo"
-            aria-label="ATV Dubai Guide"
+            className="site-brand-logo logo-placeholder-wrap"
+            aria-label="Logo Placeholder"
             onClick={(e) => {
               e.preventDefault();
               handleNavClick('home', '#hero');
             }}
           >
-            <span className="brand-icon">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 7h10.29l1.08 3.11H5.77L6.85 7zM19 17H5v-4.66l.12-.34h13.77l.11.34V17z" />
-                <circle cx="7.5" cy="14.5" r="1.5" />
-                <circle cx="16.5" cy="14.5" r="1.5" />
-              </svg>
-            </span>
-            <span className="brand-text-wrap">
-              <span className="brand-title">ATV</span>
-              <span className="brand-sub">Dubai Guide</span>
-            </span>
+            <div className="logo-placeholder-box">
+              <span className="placeholder-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="3" ry="3" strokeDasharray="3 3"></rect>
+                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                  <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+              </span>
+              <span className="placeholder-text">LOGO PLACEHOLDER</span>
+            </div>
           </a>
 
           {/* Centered Minimal Navbar matching Screenshot: HOME, ABOUT US, PACKAGES, CONTACT */}
@@ -259,7 +258,16 @@ function Header({
       {/* Responsive Mobile Drawer */}
       <div className={`mobile-nav-drawer ${isMobileMenuOpen ? 'open' : ''}`}>
         <div className="mobile-nav-header">
-          <span className="drawer-title">ATV DUBAI GUIDE</span>
+          <div className="logo-placeholder-box mobile-drawer-placeholder">
+            <span className="placeholder-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" style={{ width: '18px', height: '18px' }}>
+                <rect x="3" y="3" width="18" height="18" rx="3" ry="3" strokeDasharray="3 3"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+              </svg>
+            </span>
+            <span className="placeholder-text">LOGO PLACEHOLDER</span>
+          </div>
           <button
             className="drawer-close"
             onClick={() => setIsMobileMenuOpen(false)}
