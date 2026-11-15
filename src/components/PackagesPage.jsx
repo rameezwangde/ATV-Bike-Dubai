@@ -4,51 +4,95 @@ import { useI18n } from '../context/I18nContext.jsx';
 const ALL_PACKAGES = {
   'can-am': [
     {
-      id: 'can-am-2-seater',
-      title: 'CAN-AM MAVERICK — 2 SEATER',
-      categoryBadge: 'CAN-AM',
-      price: '800 AED',
-      duration: '30 Mins / 1 Hour',
-      capacity: '2 Riders',
+      id: 'can-am-xr-2-seater',
+      title: 'CAN-AM MAVERICK XR (245 HP STAGE 4) (2 SEATER)',
+      categoryBadge: 'CAN-AM BUGGIES',
+      price: '1,200 AED',
+      duration: '1-2 Hours',
+      capacity: '2 Seaters',
       transfer: '300 AED 2-Way Transport',
-      inclusionPill: 'FULL PRO GEAR • UNLIMITED HYDRATION • LEAD GUIDE',
+      inclusionPill: 'FULL KEY (NO LOCKED ENGINE, ONLY OPEN K...)',
       description:
-        'Take the wheel of a self-driven 2000cc Can-Am Maverick X3 Turbo RR. Carve through towering red dunes with extreme horsepower, low-center stability, and custom Fox racing suspension.',
+        'Dominate Dubai’s red dunes with the 245 HP Stage 4 Can-Am Maverick XR, 1 hr: 1200 AED | 2 hrs: 1800 AED.',
       image: '/canam-2seat-clean.jpg',
       inclusions: [
+        'Full Key Open Power (No Locked Engine)',
         'Professional Desert Guide & Lead Convoy',
         'Full Protective Gear (Helmets, Goggles, Gloves)',
-        'Unlimited Chilled Water & Soft Drinks',
-        'Safety Harness 4-Point Racing Buckle'
+        'Complimentary Refreshments & Sandboarding'
       ],
       pricingOptions: [
-        { label: '30 Mins Ride', price: '800 AED' },
-        { label: '1 Hour Ride', price: '1,400 AED' },
-        { label: '2 Hours Sunset VIP', price: '2,600 AED' }
+        { label: '1 Hour Ride', price: '1,200 AED' },
+        { label: '2 Hours Ride', price: '1,800 AED' }
       ]
     },
     {
-      id: 'can-am-4-seater',
-      title: 'CAN-AM MAVERICK — 4 SEATER MAX',
-      categoryBadge: 'CAN-AM VIP',
+      id: 'can-am-xr-4-seater',
+      title: 'CAN-AM MAVERICK XR (245 HP STAGE 4) (MAX FOR 4 SEATER)',
+      categoryBadge: 'CAN-AM BUGGIES',
       price: '1,200 AED',
-      duration: '30 Mins / 1 Hour',
-      capacity: '4 Riders (Family / Group)',
+      duration: '1-2 Hours',
+      capacity: '4 Seaters',
       transfer: '300 AED 2-Way Transport',
-      inclusionPill: 'FULL PRO GEAR • VIP DESERT LOUNGE • HIGH CREST CONVOY',
+      inclusionPill: 'FULL KEY (NO LOCKED ENGINE, ONLY OPEN K...)',
       description:
-        'The ultimate shared adrenaline experience. Bring your family or crew into the heart of the desert in a long-wheelbase 4-seater Maverick MAX Turbo, offering luxury comfort and massive power.',
+        'Dominate Dubai’s red dunes with the 245 HP Stage 4 Can-Am Maverick XR, 1 hr: 1200 AED | 2 hrs: 1800 AED.',
       image: '/canam-4seat-clean.jpg',
       inclusions: [
-        'High-Speed Dune Bashing & High-Crest Photo Stops',
-        'Dedicated Desert Marshal & Recovery Team',
-        'Full 4-Seater Roll Cage & Goggles for All',
-        'Complimentary Sandboarding Experience'
+        'Full Key Open Power (No Locked Engine)',
+        'Professional Desert Marshal & Escort Team',
+        'Full 4-Seater Roll Cage & Gear for All',
+        'Complimentary Refreshments & Sandboarding'
       ],
       pricingOptions: [
-        { label: '30 Mins Ride', price: '1,200 AED' },
-        { label: '1 Hour Ride', price: '2,100 AED' },
-        { label: '2 Hours Sunset VIP', price: '3,800 AED' }
+        { label: '1 Hour Ride', price: '1,200 AED' },
+        { label: '2 Hours Ride', price: '1,800 AED' }
+      ]
+    },
+    {
+      id: 'can-am-x3-turbo-2-seater',
+      title: 'CAN-AM MAVERICK X3 TURBO (2 SEATER)',
+      categoryBadge: 'CAN-AM BUGGIES',
+      price: '1,000 AED',
+      duration: '1-2 Hours',
+      capacity: '2 Seaters',
+      transfer: '300 AED 2-Way Transport',
+      inclusionPill: 'FULL KEY (NO LOCKED ENGINE, ONLY OPEN K...)',
+      description:
+        'High-performance Can-Am Maverick X3 Turbo engineered for high dune carving and open throttle desert runs.',
+      image: '/canam-2seat-clean.jpg',
+      inclusions: [
+        'Full Key (No Locked Engine, Only Open Power)',
+        'Experienced Desert Guide & Lead Convoy',
+        'Full Safety Gear & Desert Briefing',
+        'Chilled Hydration & High-Crest Photo Stops'
+      ],
+      pricingOptions: [
+        { label: '1 Hour Ride', price: '1,000 AED' },
+        { label: '2 Hours Ride', price: '1,600 AED' }
+      ]
+    },
+    {
+      id: 'can-am-x3-turbo-4-seater',
+      title: 'CAN-AM MAVERICK X3 TURBO 4 SEATER',
+      categoryBadge: 'CAN-AM BUGGIES',
+      price: '1,000 AED',
+      duration: '1-2 Hours',
+      capacity: '4 Seaters',
+      transfer: '300 AED 2-Way Transport',
+      inclusionPill: 'FAMILY & FRIENDS EXPEDITION • OPEN POWER',
+      description:
+        'Bring family or friends together for the ultimate adrenaline rush in the dunes with 4 comfortable bucket seats.',
+      image: '/canam-4seat-clean.jpg',
+      inclusions: [
+        'Family & Friends Group Desert Expedition',
+        'Professional Marshall & Lead Guide Convoy',
+        'Full Safety Helmets & Goggles Provided',
+        'Unlimited Chilled Soft Drinks & Refreshments'
+      ],
+      pricingOptions: [
+        { label: '1 Hour Ride', price: '1,000 AED' },
+        { label: '2 Hours Ride', price: '1,600 AED' }
       ]
     }
   ],
@@ -358,8 +402,10 @@ export default function PackagesPage({ onOpenBooking, selectedCategory = 'all' }
   const { formatPrice, t } = useI18n();
   const [filter, setFilter] = useState('can-am');
   const [selectedDuration, setSelectedDuration] = useState({
-    'can-am-2-seater': 0,
-    'can-am-4-seater': 0
+    'can-am-xr-2-seater': 0,
+    'can-am-xr-4-seater': 0,
+    'can-am-x3-turbo-2-seater': 0,
+    'can-am-x3-turbo-4-seater': 0
   });
 
   return (

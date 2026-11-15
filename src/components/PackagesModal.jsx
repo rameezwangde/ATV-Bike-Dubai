@@ -2,16 +2,52 @@ import React, { useState } from 'react';
 
 const ALL_PACKAGES = [
   {
-    id: 'canam-x3-turbo',
+    id: 'can-am-xr-2-seater',
     category: 'Can-Am Buggies',
-    title: 'Can-Am Maverick X3 Turbo RR (2-Seater)',
-    image: '/pkg-canam-x3.jpg',
-    badge: 'Most Popular',
-    duration: '30 / 60 / 120 Mins',
-    seats: '2 Passengers',
-    power: '200 HP Turbo',
-    price: 'AED 800',
-    description: 'The ultimate high-performance dune shredder. Includes guide, helmets, goggles, and desert fuel.'
+    title: 'CAN-AM MAVERICK XR (245 HP STAGE 4) (2 SEATER)',
+    image: '/canam-2seat-clean.jpg',
+    badge: '245 HP Stage 4',
+    duration: '1-2 Hours',
+    seats: '2 Seaters',
+    power: '245 HP Stage 4',
+    price: 'AED 1,200',
+    description: 'Dominate Dubai’s red dunes with the 245 HP Stage 4 Can-Am Maverick XR, 1 hr: 1200 AED | 2 hrs: 1800 AED.'
+  },
+  {
+    id: 'can-am-xr-4-seater',
+    category: 'Can-Am Buggies',
+    title: 'CAN-AM MAVERICK XR (245 HP STAGE 4) (MAX FOR 4 SEATER)',
+    image: '/canam-4seat-clean.jpg',
+    badge: '4 Seater Max',
+    duration: '1-2 Hours',
+    seats: '4 Seaters',
+    power: '245 HP Stage 4',
+    price: 'AED 1,200',
+    description: 'Dominate Dubai’s red dunes with the 245 HP Stage 4 Can-Am Maverick XR, 1 hr: 1200 AED | 2 hrs: 1800 AED.'
+  },
+  {
+    id: 'can-am-x3-turbo-2-seater',
+    category: 'Can-Am Buggies',
+    title: 'CAN-AM MAVERICK X3 TURBO (2 SEATER)',
+    image: '/canam-2seat-clean.jpg',
+    badge: 'Open Power',
+    duration: '1-2 Hours',
+    seats: '2 Seaters',
+    power: 'Turbo Open Power',
+    price: 'AED 1,000',
+    description: 'High-performance Can-Am Maverick X3 Turbo engineered for high dune carving and open throttle desert runs.'
+  },
+  {
+    id: 'can-am-x3-turbo-4-seater',
+    category: 'Can-Am Buggies',
+    title: 'CAN-AM MAVERICK X3 TURBO 4 SEATER',
+    image: '/canam-4seat-clean.jpg',
+    badge: 'Family & Friends',
+    duration: '1-2 Hours',
+    seats: '4 Seaters',
+    power: 'Turbo Open Power',
+    price: 'AED 1,000',
+    description: 'Bring family or friends together for the ultimate adrenaline rush in the dunes with 4 comfortable bucket seats.'
   },
   {
     id: 'polaris-rzr-4seat',
