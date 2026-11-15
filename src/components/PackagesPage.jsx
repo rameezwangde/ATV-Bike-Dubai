@@ -98,99 +98,70 @@ const ALL_PACKAGES = {
   ],
   'polaris': [
     {
-      id: 'polaris-rzr-1-seat',
-      title: 'POLARIS RZR 1000-CC — 1 SEAT',
-      categoryBadge: 'POLARIS RZR',
-      price: '450 AED',
-      duration: '30 Mins / 1 Hour',
-      capacity: '1 Rider Solo Buggy',
+      id: 'polaris-rzr-1000-cc-2-seater',
+      title: 'POLARIS RZR 1000 CC (145 HP) (2 SEATER)',
+      categoryBadge: 'POLARIS RZR BUGGIES',
+      price: '500 AED',
+      duration: '1-2 Hours',
+      capacity: '2 Seaters',
       transfer: '300 AED 2-Way Transport',
-      inclusionPill: 'SOLO AGILITY • PRO HELMET & GOGGLES • DUNES CONVOY',
+      inclusionPill: 'FULL KEY (NO LOCKED ENGINE, ONLY OPEN K...)',
       description:
-        'Pure solo exhilaration. The lightweight single-seater Polaris RZR 1000cc offers razor-sharp agility, immediate throttle response, and unmatched maneuverability over razorback sand crests.',
-      image: '/polaris-1seat-clean.jpg',
-      inclusions: [
-        'Desert Marshall & Lead Convoy Guide',
-        'Professional Helmet, Goggles & Gloves',
-        'Complimentary Sandboarding & Water',
-        'Photo & Video Scenic Dune Stops'
-      ],
-      pricingOptions: [
-        { label: '30 Mins Ride', price: '450 AED' },
-        { label: '1 Hour Ride', price: '850 AED' },
-        { label: '2 Hours Sunset VIP', price: '1,600 AED' }
-      ]
-    },
-    {
-      id: 'polaris-rzr-2-seat',
-      title: 'POLARIS RZR 1000-CC — 2 SEAT',
-      categoryBadge: 'POLARIS RZR',
-      price: '550 AED',
-      duration: '30 Mins / 1 Hour',
-      capacity: '2 Riders (Driver + Passenger)',
-      transfer: '300 AED 2-Way Transport',
-      inclusionPill: 'DUAL BUCKET SEATS • FOX PERFORMANCE • DESERT GUIDE',
-      description:
-        'Share the dune adrenaline with a partner. Powered by a high-output ProStar 1000cc engine, this 2-seater buggy balances responsive cornering with plush desert suspension travel.',
+        'Embark on an exciting desert journey with the 145 HP Polaris RZR 1000 CC, 1 hr: 500 AED | 2 hrs: 700 AED.',
       image: '/polaris-2seat-clean.jpg',
       inclusions: [
-        'Safety Briefing & Lead Desert Guide',
-        'Full Safety Gear for Both Riders',
-        'Chilled Refreshments & Hydration',
-        'High-Crest Sandboarding Experience'
+        'Full Key Open Power (No Locked Engine)',
+        'Experienced Desert Guide & Lead Convoy',
+        'Full Protective Gear (Helmets, Goggles, Gloves)',
+        'Complimentary Refreshments & Sandboarding'
       ],
       pricingOptions: [
-        { label: '30 Mins Ride', price: '550 AED' },
-        { label: '1 Hour Ride', price: '950 AED' },
-        { label: '2 Hours Sunset VIP', price: '1,800 AED' }
+        { label: '1 Hour Ride', price: '500 AED' },
+        { label: '2 Hours Ride', price: '700 AED' }
       ]
     },
     {
-      id: 'polaris-rzr-4-seat',
-      title: 'POLARIS RZR 1000-CC — 4 SEAT',
-      categoryBadge: 'POLARIS FAMILY',
-      price: '850 AED',
-      duration: '30 Mins / 1 Hour',
-      capacity: '4 Riders (Family / Friends)',
+      id: 'polaris-rzr-2-seater-early-morning',
+      title: 'POLARIS RZR 2 SEATER (EARLY MORNING SPECIAL)',
+      categoryBadge: 'POLARIS RZR BUGGIES',
+      price: '500 AED',
+      duration: '1-Hour',
+      capacity: '2 Seaters',
       transfer: '300 AED 2-Way Transport',
-      inclusionPill: 'FULL CREW CAB • 4-POINT HARNESSES • VIP DUNE SAFARI',
+      inclusionPill: 'SUNRISE SPECIAL • FRESH UNTOUCHED DUNES',
       description:
-        'Bring the whole squad along. The 4-seat Polaris RZR 1000 features deep bucket seating for 4 passengers, heavy-duty roll cage construction, and plenty of power to conquer red sand dunes.',
+        'Experience Dubai dunes at dawn with cooler temperatures and magical sunrise photo stops.',
       image: '/polaris-4seat-clean.jpg',
       inclusions: [
-        'Dedicated Desert Lead Marshall',
-        'Full Protective Gear for All 4 Riders',
-        'Unlimited Chilled Drinks & Bottled Water',
-        'High-Dune Sunset Viewpoints & Photos'
+        'Sunrise Desert Expedition with Lead Marshall',
+        'Cool Early Morning Breeze & Untouched Sand Crests',
+        'Full Protective Helmets, Goggles & Gloves',
+        'Complimentary Sandboarding & Water'
       ],
       pricingOptions: [
-        { label: '30 Mins Ride', price: '850 AED' },
-        { label: '1 Hour Ride', price: '1,500 AED' },
-        { label: '2 Hours Sunset VIP', price: '2,800 AED' }
+        { label: '1-Hour Sunrise Special', price: '500 AED' }
       ]
     },
     {
-      id: 'polaris-rzr-turbo-4-seat',
-      title: 'POLARIS RZR TURBO 1800CC — 4 SEAT',
-      categoryBadge: 'TURBO BEAST',
-      price: '1,400 AED',
-      duration: '30 Mins / 1 Hour',
-      capacity: '4 Riders Extreme Spec',
+      id: 'polaris-rzr-turbo-s-2-seater',
+      title: 'POLARIS RZR TURBO S (2 SEATER)',
+      categoryBadge: 'POLARIS RZR BUGGIES',
+      price: '500 AED',
+      duration: '2-Hour',
+      capacity: '2 Seaters',
       transfer: '300 AED 2-Way Transport',
-      inclusionPill: 'TURBOCHARGED BOOST • EXTREME TRAVEL SUSPENSION • VIP TOUR',
+      inclusionPill: 'FULL KEY (NO LOCKED ENGINE, ONLY OPEN K...)',
       description:
-        'Maximum power for desert connoisseurs. Equipped with an 1800cc turbocharged powertrain and race-tuned active suspension, this beast flies over steep dunes with effortless torque.',
+        'Conquer the most demanding desert ridges with top-tier turbo torque and 72-inch wide track stability.',
       image: '/polaris-turbo-clean.jpg',
       inclusions: [
-        'Elite Marshall Escort & Route Selection',
-        'Premium Carbon Helmets & Anti-Dust Goggles',
-        'VIP Desert Lounge Refreshments',
-        'Sandboarding & Action Photo Stops'
+        'Full Key Open Power (No Locked Engine)',
+        'Dedicated Desert Lead Marshall & Route Navigation',
+        '72-Inch Wide Track High Stability Suspension',
+        'VIP Refreshments & High-Crest Photo Stops'
       ],
       pricingOptions: [
-        { label: '30 Mins Ride', price: '1,400 AED' },
-        { label: '1 Hour Ride', price: '2,400 AED' },
-        { label: '2 Hours Sunset VIP', price: '4,200 AED' }
+        { label: '2-Hour Ride', price: '500 AED' }
       ]
     },
     {
@@ -405,7 +376,10 @@ export default function PackagesPage({ onOpenBooking, selectedCategory = 'all' }
     'can-am-xr-2-seater': 0,
     'can-am-xr-4-seater': 0,
     'can-am-x3-turbo-2-seater': 0,
-    'can-am-x3-turbo-4-seater': 0
+    'can-am-x3-turbo-4-seater': 0,
+    'polaris-rzr-1000-cc-2-seater': 0,
+    'polaris-rzr-2-seater-early-morning': 0,
+    'polaris-rzr-turbo-s-2-seater': 0
   });
 
   return (

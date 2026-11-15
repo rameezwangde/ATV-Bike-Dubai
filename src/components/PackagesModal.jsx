@@ -50,16 +50,40 @@ const ALL_PACKAGES = [
     description: 'Bring family or friends together for the ultimate adrenaline rush in the dunes with 4 comfortable bucket seats.'
   },
   {
-    id: 'polaris-rzr-4seat',
+    id: 'polaris-rzr-1000-cc-2-seater',
     category: 'Polaris Buggies',
-    title: 'Polaris RZR 1000 Family (4-Seater)',
-    image: '/pkg-polaris-rzr.jpg',
-    badge: 'Family Pick',
-    duration: '60 / 120 Mins',
-    seats: '4 Passengers',
+    title: 'POLARIS RZR 1000 CC (145 HP) (2 SEATER)',
+    image: '/polaris-2seat-clean.jpg',
+    badge: '145 HP Open Power',
+    duration: '1-2 Hours',
+    seats: '2 Seaters',
+    power: '145 HP ProStar',
+    price: 'AED 500',
+    description: 'Embark on an exciting desert journey with the 145 HP Polaris RZR 1000 CC, 1 hr: 500 AED | 2 hrs: 700 AED.'
+  },
+  {
+    id: 'polaris-rzr-2-seater-early-morning',
+    category: 'Polaris Buggies',
+    title: 'POLARIS RZR 2 SEATER (EARLY MORNING SPECIAL)',
+    image: '/polaris-4seat-clean.jpg',
+    badge: 'Sunrise Special',
+    duration: '1-Hour',
+    seats: '2 Seaters',
     power: '1000cc Dual Cam',
-    price: 'AED 950',
-    description: 'Spacious four-seat buggy engineered for family thrill rides across Red Dunes.'
+    price: 'AED 500',
+    description: 'Experience Dubai dunes at dawn with cooler temperatures and magical sunrise photo stops.'
+  },
+  {
+    id: 'polaris-rzr-turbo-s-2-seater',
+    category: 'Polaris Buggies',
+    title: 'POLARIS RZR TURBO S (2 SEATER)',
+    image: '/polaris-turbo-clean.jpg',
+    badge: 'Turbo S 72-Inch',
+    duration: '2-Hour',
+    seats: '2 Seaters',
+    power: 'Turbocharged S',
+    price: 'AED 500',
+    description: 'Conquer the most demanding desert ridges with top-tier turbo torque and 72-inch wide track stability.'
   },
   {
     id: 'raptor-700-beast',
